@@ -4,7 +4,6 @@ import {
   useLayoutEffect,
   useMemo,
   useRef,
-  useState,
 } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -15,8 +14,15 @@ interface TextPressureProps {
 }
 
 const MAX_DISTANCE = 300;
+const EASING = 0.1;
 
-function mapRange(value: number, inputMin: number, inputMax: number, outputMin: number, outputMax: number) {
+function mapRange(
+  value: number,
+  inputMin: number,
+  inputMax: number,
+  outputMin: number,
+  outputMax: number,
+) {
   const safeValue = Math.min(Math.max(value, inputMin), inputMax);
   const progress = (safeValue - inputMin) / (inputMax - inputMin);
   return outputMin + (1 - progress) * (outputMax - outputMin);
@@ -25,17 +31,69 @@ function mapRange(value: number, inputMin: number, inputMax: number, outputMin: 
 export function TextPressure({ text, className }: TextPressureProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const spanRefs = useRef<Array<HTMLSpanElement | null>>([]);
-  const [mouse, setMouse] = useState({ x: -MAX_DISTANCE, y: -MAX_DISTANCE });
-  const [centers, setCenters] = useState<Array<{ x: number; y: number }>>([]);
+  const centersRef = useRef<Array<{ x: number; y: number }>>([]);
+  const targetMouseRef = useRef({ x: 0, y: 0 });
+  const currentMouseRef = useRef({ x: 0, y: 0 });
+  const frameRef = useRef<number | null>(null);
 
   const characters = useMemo(() => text.split(""), [text]);
 
+  const applyStyles = () => {
+    centersRef.current.forEach((center, index) => {
+      const span = spanRefs.current[index];
+      if (!span) {
+        return;
+      }
+
+      const distance = Math.hypot(
+        currentMouseRef.current.x - center.x,
+        currentMouseRef.current.y - center.y,
+      );
+      const weight = Math.round(mapRange(distance, 0, MAX_DISTANCE, 900, 220));
+      const width = Math.round(mapRange(distance, 0, MAX_DISTANCE, 132, 88));
+      const lift = Math.max(0, 1 - distance / MAX_DISTANCE) * -8;
+
+      span.style.fontVariationSettings = `'wght' ${weight}, 'wdth' ${width}`;
+      span.style.transform = `translateY(${lift}px)`;
+      span.style.color =
+        distance < 140 ? "rgba(201, 162, 39, 1)" : "rgba(245, 247, 250, 0.96)";
+    });
+  };
+
+  const startAnimation = () => {
+    if (frameRef.current !== null) {
+      return;
+    }
+
+    const tick = () => {
+      const current = currentMouseRef.current;
+      const target = targetMouseRef.current;
+
+      current.x += (target.x - current.x) * EASING;
+      current.y += (target.y - current.y) * EASING;
+
+      applyStyles();
+
+      const delta = Math.hypot(target.x - current.x, target.y - current.y);
+      if (delta > 0.35) {
+        frameRef.current = requestAnimationFrame(tick);
+        return;
+      }
+
+      currentMouseRef.current = { ...target };
+      applyStyles();
+      frameRef.current = null;
+    };
+
+    frameRef.current = requestAnimationFrame(tick);
+  };
+
   useLayoutEffect(() => {
     const measure = () => {
-      const nextCenters = spanRefs.current.map((span) => {
+      centersRef.current = spanRefs.current.map((span) => {
         const rect = span?.getBoundingClientRect();
         if (!rect) {
-          return { x: -MAX_DISTANCE, y: -MAX_DISTANCE };
+          return { x: 0, y: 0 };
         }
 
         return {
@@ -44,7 +102,16 @@ export function TextPressure({ text, className }: TextPressureProps) {
         };
       });
 
-      setCenters(nextCenters);
+      if (!targetMouseRef.current.x && !targetMouseRef.current.y) {
+        const centered = {
+          x: window.innerWidth / 2,
+          y: window.innerHeight / 2,
+        };
+        targetMouseRef.current = centered;
+        currentMouseRef.current = centered;
+      }
+
+      applyStyles();
     };
 
     const observer = new ResizeObserver(measure);
@@ -62,64 +129,58 @@ export function TextPressure({ text, className }: TextPressureProps) {
   }, [text]);
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      setMouse((current) =>
-        current.x < 0
-          ? {
-              x: window.innerWidth / 2,
-              y: window.innerHeight / 2,
-            }
-          : current,
-      );
-    }, 240);
+    const centered = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    };
+    targetMouseRef.current = centered;
+    currentMouseRef.current = centered;
+    startAnimation();
 
-    return () => window.clearTimeout(timeout);
+    return () => {
+      if (frameRef.current !== null) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
   }, []);
+
+  const hiddenStyle = {
+    fontVariationSettings: "'wght' 220, 'wdth' 88",
+    transform: "translateY(0px)",
+    color: "rgba(245, 247, 250, 0.96)",
+  } satisfies CSSProperties;
 
   return (
     <div
       ref={containerRef}
       className={cn("text-pressure cursor-default select-none", className)}
-      onMouseMove={(event) => setMouse({ x: event.clientX, y: event.clientY })}
-      onMouseLeave={() =>
-        setMouse({
+      onMouseMove={(event) => {
+        targetMouseRef.current = { x: event.clientX, y: event.clientY };
+        startAnimation();
+      }}
+      onMouseLeave={() => {
+        targetMouseRef.current = {
           x: window.innerWidth / 2,
           y: window.innerHeight / 2,
-        })
-      }
+        };
+        startAnimation();
+      }}
     >
-      {characters.map((character, index) => {
-        const center = centers[index];
-        const distance = center
-          ? Math.hypot(mouse.x - center.x, mouse.y - center.y)
-          : MAX_DISTANCE;
-        const weight = Math.round(mapRange(distance, 0, MAX_DISTANCE, 900, 160));
-        const width = Math.round(mapRange(distance, 0, MAX_DISTANCE, 150, 60));
-        const lift = Math.max(0, 1 - distance / MAX_DISTANCE) * -10;
-
-        const style = {
-          fontVariationSettings: `'wght' ${weight}, 'wdth' ${width}`,
-          transform: `translateY(${lift}px)`,
-          color:
-            distance < 120 ? "rgba(201, 162, 39, 1)" : "rgba(245, 247, 250, 0.94)",
-        } satisfies CSSProperties;
-
-        return (
-          <motion.span
-            key={`${character}-${index}`}
-            ref={(element) => {
-              spanRefs.current[index] = element;
-            }}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.025, duration: 0.5 }}
-            style={style}
-            aria-hidden="true"
-          >
-            {character === " " ? "\u00A0" : character}
-          </motion.span>
-        );
-      })}
+      {characters.map((character, index) => (
+        <motion.span
+          key={`${character}-${index}`}
+          ref={(element) => {
+            spanRefs.current[index] = element;
+          }}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.02, duration: 0.45 }}
+          style={hiddenStyle}
+          aria-hidden="true"
+        >
+          {character === " " ? "\u00A0" : character}
+        </motion.span>
+      ))}
       <span className="sr-only">{text}</span>
     </div>
   );

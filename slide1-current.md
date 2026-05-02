@@ -1,0 +1,79 @@
+- generic [ref=e4]:
+  - generic [ref=e6]:
+    - img "Premium legal workplace scene for Bedi & Associates" [ref=e9]
+    - generic [ref=e16]:
+      - generic [ref=e19]:
+        - paragraph [ref=e20]: Bedi & Associates
+        - generic [ref=e22]
+      - paragraph [ref=e25]: Legal Platform • Attendance Software • Institutional Efficiency
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - heading "One Proposal. Two Systems. One Direction." [level=2] [ref=e37]
+      - paragraph [ref=e38]: First, legal operations. Then, internal office operations.
+    - generic [ref=e40]:
+      - article [ref=e41]:
+        - generic [ref=e44]
+      - article [ref=e53]:
+        - generic [ref=e56]
+      - article [ref=e65]:
+        - generic [ref=e68]
+  - generic [ref=e80]:
+    - img "Legal technology workspace for smarter legal operations" [ref=e83]
+    - generic [ref=e89]:
+      - generic [ref=e90]:
+        - generic [ref=e91]
+        - generic [ref=e103]
+      - paragraph [ref=e113]: Public Website • Lawyer Dashboard • Admin Dashboard
+  - generic [ref=e115]:
+    - img "Public legal portal environment on a desk" [ref=e118]
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - paragraph [ref=e126]: PUBLIC ACCESS
+        - paragraph [ref=e127]: Public Website
+        - heading "The Front Door of the Legal System" [level=2] [ref=e128]
+        - paragraph [ref=e129]: Clear access for clients, citizens, lawyers, and staff.
+        - blockquote [ref=e130]: Users should quickly know where to search, what service to use, and how to access information.
+      - generic [ref=e133]:
+        - generic [ref=e145]
+        - paragraph [ref=e158]: English • Hindi • Marathi
+  - generic [ref=e160]:
+    - generic [ref=e161]:
+      - paragraph [ref=e162]: Slide 05 / High Availability
+      - heading "Your Legacy, Never Offline." [level=2] [ref=e163]
+      - paragraph [ref=e164]: We create a real-time reflection of your 20-year database. If your local office internet or power fails, the "Mirror in the Sky" continues to serve the public, the Justice Clock, and your appointments without a second of downtime.
+      - generic [ref=e165]:
+        - generic [ref=e166]
+        - generic [ref=e169]
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]
+        - generic [ref=e179]: Zero visible downtime
+      - generic [ref=e181]:
+        - generic [ref=e182]
+        - generic [ref=e194]
+      - generic [ref=e203]:
+        - generic [ref=e205]
+        - generic [ref=e211]
+  - generic [ref=e221]:
+    - paragraph [ref=e222]: Slide 06 / Conclusion
+    - heading "Building the Future of [Firm Name]." [level=2] [ref=e223]
+    - paragraph [ref=e224]: "An institutional platform shaped to look inevitable: authoritative in tone, restrained in motion, and built to honor the legacy it represents."
+    - button "Enter System" [ref=e226] [cursor=pointer]:
+      - text: Enter System
+      - img [ref=e227]
+  - generic [ref=e233]:
+    - generic [ref=e234]:
+      - paragraph [ref=e235]: Slide 07 / PulseFlow Proposal
+      - heading "Trust-first attendance flow for Bedi & Associates." [level=2] [ref=e236]
+      - paragraph [ref=e237]: PulseFlow now frames attendance around accountability, transparency, and employee comfort, with cross-platform flow for Windows, macOS, and Linux.
+      - generic [ref=e238]:
+        - generic [ref=e240]
+        - generic [ref=e248]
+        - generic [ref=e253]
+      - generic [ref=e259]:
+        - button "Open Bedi Proposal" [ref=e260] [cursor=pointer]
+        - paragraph [ref=e263]: "Routes to `/attendence`"
+    - generic [ref=e265]:
+      - img [ref=e269]
+      - generic [ref=e271]: Privacy-first screenshot timeline
+      - generic [ref=e272]: Auto-punch + music alert
