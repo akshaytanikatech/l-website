@@ -54,7 +54,11 @@ test.describe("Legal presentation opening slides", () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto("/");
 
-    await expect(page.getByRole("heading", { name: "Building a Smarter Legal Workplace" })).toBeVisible();
+    await expect(
+      page.getByTestId("legal-slide-1").getByRole("heading", {
+        name: "Building a Smarter Legal Workplace",
+      })
+    ).toBeVisible();
     await expect(page.getByTestId("legal-slide-1")).toContainText("Bedi & Associates");
     await expect(page.getByTestId("legal-slide-1")).toContainText(
       "Legal operations + internal office systems, connected through clarity, accountability, and trust."

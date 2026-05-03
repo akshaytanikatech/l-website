@@ -34,6 +34,18 @@ import slide9 from "./media/lawyer/slide-9.jpg";
 import slide10 from "./media/lawyer/slide-10.jpg";
 import slide11 from "./media/lawyer/slide-11.jpg";
 import slide12 from "./media/lawyer/slide-12.jpg";
+import slide13 from "./media/lawyer/slide-13.jpg";
+import slide14 from "./media/lawyer/slide-14.jpg";
+import slide15 from "./media/lawyer/slide-15.jpg";
+import slide16 from "./media/lawyer/slide-16.jpg";
+import slide17Hero from "./media/lawyer/slide-17.jpg";
+import slide18Hero from "./media/lawyer/slide-18.jpg";
+import slide19Hero from "./media/lawyer/slide-19.jpg";
+import slide20Hero from "./media/lawyer/slide-20.jpg";
+import slide21Hero from "./media/lawyer/slide-21.jpg";
+import slide22Hero from "./media/lawyer/slide-22.jpg";
+import slide23Hero from "./media/lawyer/slide-23.jpg";
+import slide24Hero from "./media/lawyer/slide-24.jpg";
 
 const sections = [
   { id: "foundation", label: "Foundation" },
@@ -48,7 +60,18 @@ const sections = [
   { id: "lawyer-dashboard", label: "Lawyer Dashboard" },
   { id: "lawyer-security", label: "Lawyer Login & Security" },
   { id: "assigned-cases", label: "Assigned Cases & Documents" },
-  { id: "pulseflow", label: "PulseFlow" },
+  { id: "evidence-preparation", label: "Evidence Preparation" },
+  { id: "shared-notes", label: "Shared Notes" },
+  { id: "lawyer-timeline", label: "Lawyer Timeline" },
+  { id: "admin-dashboard", label: "Admin Dashboard" },
+  { id: "user-management", label: "User Management" },
+  { id: "operational-management", label: "Operational Management" },
+  { id: "activity-notes-oversight", label: "Activity & Notes Oversight" },
+  { id: "office-operations-bridge", label: "Legal to Office Operations" },
+  { id: "attendance-software", label: "Attendance Software" },
+  { id: "current-situation", label: "Current Situation" },
+  { id: "attendance-workflow", label: "How It Works" },
+  { id: "final-vision", label: "Final Vision" },
 ] as const;
 
 type AppRoute = "/" | "/attendence";
@@ -194,6 +217,180 @@ This is very practical because lawyers often need to review documents quickly be
 
 Instead of searching through multiple folders or physical files, the lawyer can open the case and see all relevant material in one place. This saves time and improves preparation. [Emphasize this line]`;
 
+const slideThirteenScript = `The platform can also include image editing tools. This is useful when lawyers need to prepare case material. [Small pause]
+
+For example, a lawyer may need to crop an image, rotate a scanned document, highlight an important part, add labels, blur sensitive information, or make annotations. [Annotations means small notes or markings added on the image.]
+
+These tools help the lawyer prepare evidence or supporting material without leaving the platform.
+
+Another important point is accountability. Every edit can be tracked. So, if someone edits a document image or marks evidence, the system can maintain a proper record.
+
+This is important in legal work because document handling must be careful, traceable, and responsible. Simple words mein, every important action should have a clear record. [Pause and look at audience]`;
+
+const slideFourteenScript = `Another useful feature is shared notes inside the lawyer dashboard. When a lawyer opens case information, they can add notes directly to that case file. [Small pause]
+
+These notes can include hearing preparation points, client instructions, document observations, legal strategy points, and follow-up tasks.
+
+The lawyer can also check notes added by other authorized lawyers. The system can show who added each note, when it was added, and which case it belongs to.
+
+This helps multiple lawyers work on the same matter without losing important information in separate messages, emails, or personal files.
+
+So, the case file becomes one shared place for case information, team notes, and collaboration history. Isse teamwork clear and organized rahega. [Pause and look at audience]`;
+
+const slideFifteenScript = `The lawyer timeline is another important feature. The timeline shows all important updates in one place. [Small pause]
+
+For example, it can show a new case assignment, uploaded document, edited image, admin note, appointment update, or hearing date change.
+
+This means the lawyer does not need to manually check everything again and again. The dashboard tells the lawyer what changed and when it changed.
+
+This improves awareness and reduces the chance of missing important updates. Simple words mein, lawyer ko latest update ek jagah milta rahega. [Emphasize this line]`;
+
+const slideSixteenScript = `Now let us move to the admin dashboard. The admin dashboard is the control center of the platform. [Speak slowly]
+
+While the lawyer dashboard supports legal professionals, the admin dashboard supports the operational side.
+
+Admins can manage users, appointments, Justice Clock data, lawyer activity, and notes oversight. This gives leadership and admin teams better visibility of the entire system.
+
+Matlab, leadership can understand what is happening, where action is needed, and how the system is performing. [Pause and look at audience]`;
+
+const slideSeventeenScript = `In the admin dashboard, user management is very important. Admins can manage lawyers, staff, citizens, and other admins. [Small pause]
+
+They can create users, edit profiles, assign roles, disable accounts, and reset access. This keeps the platform secure and organized.
+
+The right person should have the right access. For example, a lawyer should see only assigned cases. An admin should manage operational data. A public user should only access public services.
+
+This role-based structure protects sensitive legal information. [Emphasize this line]`;
+
+const slideEighteenScript = `Admins can also manage appointments. They can view all bookings, approve appointments, reschedule them, cancel invalid requests, assign appointment slots, and track appointment attendance. [Small pause]
+
+This improves client service and reduces confusion at the office. For a legal firm, organized appointment management is very important because it directly affects client experience.
+
+When appointments are properly managed, visitors feel that the firm is professional and prepared. Yeh small feature hai, but client impression par strong impact karta hai. [Pause and look at audience]
+
+Admins can also manage Justice Clock data. They can update Institution, Disposal and Case Clearance Rate, Agewise Pendency, and Listed Today in English and Hindi. [Small pause]
+
+The goal is not only to display numbers. The goal is to maintain accuracy, accountability, and public trust.
+
+If the data is managed properly, the Justice Clock becomes a reliable transparency feature. It also helps administration move from assumption-based decisions to data-based decisions.
+
+This is important for any modern legal institution. Simple words mein, decisions should be based on real data, not guesswork. [Emphasize this line]`;
+
+const slideNineteenScript = `The admin dashboard can also show lawyer activity in a clear and organized way. [Small pause]
+
+Admins can check which lawyer accessed which case, what case information they updated, what note they added, what document or image they changed, and when the activity happened.
+
+This is not meant for micromanagement. [Emphasize this line] It is meant to create visibility and accountability, especially because legal case material is sensitive.
+
+A clear activity record helps the firm understand whether work is moving forward, which cases are being updated, and whether important case tasks are being handled on time. [Pause and look at audience]
+
+Admins can also monitor shared notes where permission is allowed. They can check who added a note, what note was added, when it was added, which case it belongs to, and whether any action is required. [Small pause]
+
+This helps keep communication organized and gives the admin team a proper audit view of case-related updates. [Audit view means a clear record that can be checked later.]
+
+It also ensures that important information does not remain hidden in personal messages or separate files. Everything stays connected to the case. [Emphasize this line]`;
+
+const slideTwentyScript = `Now, after looking at the legal platform, we can see one clear theme: a professional legal firm needs structured systems. [Pause and look at audience]
+
+The legal platform improves how cases, appointments, judges' information, documents, and legal workflows are managed. But there is another important part of any firm's success. That part is internal team management.
+
+Even if the legal work is organized, the office also needs proper systems for employees, attendance, working hours, breaks, and internal records.
+
+Currently, Bedi & Associates does not have a complete HR management system. Because of this, attendance tracking can become manual, time-consuming, and sometimes unclear.
+
+So, the next solution we are proposing is a practical step toward better internal management: Cross-Platform Attendance Software for Bedi & Associates.
+
+This software supports the same overall vision: transparency, accountability, organization, and trust. Iska main purpose hai office operations ko simple, fair, and clear banana. [Small pause]`;
+
+const slideTwentyOneScript = `Now let us talk about the attendance software. Every workplace needs a clear and fair way to manage attendance. [Small pause]
+
+For Bedi & Associates, this becomes even more important because the firm needs a simple system that can work across different employee devices. The software should support Windows, Mac, and Linux.
+
+The main purpose is simple: employees should be able to clock in easily, take breaks without confusion, and clock out properly at the end of the day.
+
+At the same time, employers and admins should be able to view attendance records clearly. The goal is not to create pressure. The goal is to create transparency, fairness, accountability, and trust. [Emphasize this line]
+
+Simple words mein, it is not for watching employees. It is for keeping attendance fair and clear.`;
+
+const slideTwentyTwoScript = `Right now, because there is no proper HR management system, attendance may depend on manual records or informal tracking. This can create problems. [Speak slowly]
+
+For the employer, it becomes difficult to know accurate working hours. For admin or HR teams, manual records can take extra time. For leadership, it becomes harder to understand attendance trends clearly.
+
+And for employees, if attendance is handled poorly, they may feel uncomfortable or distrusted.
+
+So, the issue is not only about tracking time. The real issue is creating a system that supports both management and employees. Matlab, system should give clarity to leadership and fairness to employees. [Pause and look at audience]
+
+Attendance is not just about clock-in and clock-out. It is about creating a fair work culture. [Speak slowly]
+
+When employees know that their time is recorded properly, their breaks are respected, and their work hours are visible in a fair way, they feel more comfortable.
+
+At the same time, when management gets accurate data, they can make better decisions without depending on assumptions.
+
+This creates a balance. Employees feel trusted, and management gets clarity. That is why this attendance software should be introduced as a support system, not as a surveillance tool. [Emphasize this line]
+
+Yeh line important hai: support system, not surveillance tool.`;
+
+const slideTwentyThreeScript = `The process can be very simple. First, the attendance software is installed on employee systems. [Small pause]
+
+It works across Windows, Mac, and Linux, so the firm does not have to worry about different operating systems.
+
+When employees start their workday, they clock in through the software. This creates a clear record of their start time. During the day, if employees take a break, they can mark the break in the system.
+
+This helps the firm understand work patterns while still respecting flexibility. At the end of the day, employees clock out. This completes their attendance record for that day.
+
+On the admin side, management can view the information through a dashboard. The dashboard can show total hours worked, breaks taken, attendance trends, daily activity summary, and consistency records.
+
+This makes attendance management easier and more reliable. Simple words mein, employee process easy rahega and admin view clear rahega. [Pause and look at audience]
+
+For Bedi & Associates, this software gives many practical benefits. [Small pause]
+
+First, it creates clear attendance tracking. The firm does not have to depend only on manual attendance records.
+
+Second, it reduces admin work. Instead of spending extra time maintaining spreadsheets or manual registers, attendance data is recorded automatically.
+
+Third, it improves transparency. Both employees and employers can clearly understand working hours and break records.
+
+Fourth, it supports multiple platforms. Whether the employee uses Windows, Mac, or Linux, the same system can work smoothly.
+
+Fifth, it helps leadership make better decisions. Management can understand attendance trends based on actual data.
+
+And most importantly, it supports a trust-based work culture. The message is very clear: this software is not about watching employees. It is about making attendance fair, simple, and transparent. [Emphasize this line]`;
+
+const slideTwentyFourScript = `This system is also useful for employees. Employees benefit because their attendance is recorded fairly. [Small pause]
+
+Their work hours are clearly visible. Their breaks are respected. They do not have to depend on manual attendance entries. And they can feel confident that their time is being valued.
+
+So, the software should not feel like pressure. It should feel like protection and clarity. [Emphasize this line]
+
+A good attendance system supports both the firm and the employees. Simple words mein, dono sides ko clarity milti hai.
+
+By introducing this attendance software, Bedi & Associates will not just be adding another tool. The firm will be moving toward a more organized workplace culture. [Speak slowly]
+
+A culture where employees are trusted. A culture where leadership has clarity. A culture where breaks are respected. A culture where time is valued. And a culture where accountability and trust work together.
+
+This is especially useful because the firm currently does not have a complete HR management system.
+
+So, this attendance software can become the first practical step toward better employee record management and smoother internal workflow. Yeh ek practical starting point ho sakta hai for better HR discipline. [Pause and look at audience]
+
+To summarize, today we presented two connected solutions. The first is the legal platform. [Small pause]
+
+This platform improves public access, case status search, Justice Clock visibility, appointment booking, judges' information, lawyer dashboards, case document handling, shared notes, timelines, and admin control.
+
+It helps legal professionals focus more on justice and less on paperwork.
+
+The second solution is the attendance software. This software helps Bedi & Associates manage employee attendance, working hours, breaks, and records in a fair and transparent way. It is especially useful because the firm currently does not have a proper HR management system.
+
+Together, both systems support one common goal: a more organized, transparent, accountable, and professional legal firm. [Emphasize this line]
+
+The legal platform improves legal and case-related operations. The attendance software improves internal employee and office operations.
+
+In that sense, the proposal reflects the same broad direction seen in Why Bharat Matters and The India Way: stronger institutions need smarter systems, better access, and accountable administration.
+
+So, this is not just about software. It is about building a smarter legal workplace. [Speak slowly]
+
+A workplace where clients get better service, lawyers work with better clarity, admins manage with better control, and employees feel trusted and respected.
+
+Thank you. [Pause and look at audience]`;
+
 const legalPlatformKeywords = [
   "Time",
   "Accuracy",
@@ -304,6 +501,241 @@ const caseMaterialTiles = [
   "Site Images",
   "Supporting Records",
   "Court Orders",
+] as const;
+
+const evidenceEditingTools = ["Crop", "Rotate", "Highlight", "Label", "Blur", "Annotate"] as const;
+
+const evidenceAuditTrailRows = [
+  { action: "Crop", user: "User A", time: "10:42" },
+  { action: "Highlight", user: "User B", time: "10:44" },
+  { action: "Blur", user: "User A", time: "10:47" },
+  { action: "Annotate", user: "User C", time: "10:49" },
+] as const;
+
+const evidenceAccountabilityLabels = [
+  "Edit History",
+  "User Action",
+  "Timestamp",
+  "Audit Trail",
+] as const;
+
+const sharedNoteCards = [
+  {
+    title: "Hearing Preparation",
+    detail: "Key submission sequence",
+    addedBy: "Added By",
+    timeAdded: "Time Added",
+    caseLinked: "Case Linked",
+  },
+  {
+    title: "Client Instructions",
+    detail: "Signature items pending",
+    addedBy: "Added By",
+    timeAdded: "Time Added",
+    caseLinked: "Case Linked",
+  },
+  {
+    title: "Document Observations",
+    detail: "Mark missing annexure",
+    addedBy: "Added By",
+    timeAdded: "Time Added",
+    caseLinked: "Case Linked",
+  },
+  {
+    title: "Strategy Points",
+    detail: "Review opposition reply",
+    addedBy: "Added By",
+    timeAdded: "Time Added",
+    caseLinked: "Case Linked",
+  },
+  {
+    title: "Follow-up Tasks",
+    detail: "Confirm witness packet",
+    addedBy: "Added By",
+    timeAdded: "Time Added",
+    caseLinked: "Case Linked",
+  },
+] as const;
+
+const lawyerTimelineEvents = [
+  {
+    title: "New Case Assignment",
+    time: "Today",
+    badge: "Assignment",
+    latest: true,
+  },
+  {
+    title: "Document Uploaded",
+    time: "Time Bar",
+    badge: "Records",
+    latest: false,
+  },
+  {
+    title: "Image Edited",
+    time: "Time Bar",
+    badge: "Evidence",
+    latest: false,
+  },
+  {
+    title: "Admin Note",
+    time: "Time Bar",
+    badge: "Admin",
+    latest: false,
+  },
+  {
+    title: "Appointment Update",
+    time: "Time Bar",
+    badge: "Calendar",
+    latest: false,
+  },
+  {
+    title: "Hearing Date Change",
+    time: "Time Bar",
+    badge: "Court",
+    latest: false,
+  },
+] as const;
+
+const adminControlModules = [
+  { title: "User Management", detail: "Role access and activation", metric: "72 users" },
+  { title: "Appointments", detail: "Daily scheduling oversight", metric: "18 pending" },
+  { title: "Justice Clock Data", detail: "Live court performance signals", metric: "3 watches" },
+  { title: "Lawyer Activity", detail: "Recent work and workload view", metric: "12 updates" },
+  { title: "Notes Oversight", detail: "Shared note supervision", metric: "9 reviews" },
+] as const;
+
+const userManagementColumns = ["View", "Edit", "Manage", "Restricted"] as const;
+
+const userManagementMatrix = [
+  { role: "Lawyers", permissions: [true, true, false, true] },
+  { role: "Staff", permissions: [true, true, false, true] },
+  { role: "Citizens", permissions: [true, false, false, true] },
+  { role: "Admins", permissions: [true, true, true, false] },
+] as const;
+
+const userManagementActions = [
+  "Create Users",
+  "Edit Profiles",
+  "Assign Roles",
+  "Disable Accounts",
+  "Reset Access",
+] as const;
+
+const appointmentManagementActions = [
+  "View Bookings",
+  "Approve",
+  "Reschedule",
+  "Cancel",
+  "Assign Slots",
+  "Track Attendance",
+] as const;
+
+const justiceClockManagementMetrics = [
+  "Institution",
+  "Disposal",
+  "Clearance Rate",
+  "Agewise Pendency",
+  "Listed Today",
+] as const;
+
+const activityLedgerRows = [
+  { label: "Case Accessed", time: "Today" },
+  { label: "Case Updated", time: "Time Bar" },
+  { label: "Note Added", time: "Time Bar" },
+  { label: "Document Changed", time: "Time Bar" },
+  { label: "Image Edited", time: "Time Bar" },
+  { label: "Time Recorded", time: "Time Bar" },
+] as const;
+
+const notesOversightRows = [
+  "Who added it",
+  "What was added",
+  "When it was added",
+  "Which case it belongs to",
+  "Whether action is required",
+] as const;
+
+const legalOperationsBridgeItems = [
+  "Case workflows",
+  "Documents",
+  "Appointments",
+  "Admin visibility",
+] as const;
+
+const attendanceOperationsBridgeItems = [
+  "Attendance",
+  "Work hours",
+  "Breaks",
+  "Employee records",
+] as const;
+
+const attendancePlatforms = ["Windows", "Mac", "Linux"] as const;
+
+const attendanceEmployeeFlow = ["Clock In", "Break", "Resume", "Clock Out"] as const;
+
+const attendanceAdminSummaryItems = [
+  "Total Hours",
+  "Breaks",
+  "Daily Summary",
+  "Trends",
+] as const;
+
+const currentSituationProblems = [
+  "Manual Records",
+  "Informal Tracking",
+  "Extra Admin Work",
+  "Unclear Trends",
+  "Employee Discomfort",
+] as const;
+
+const currentSituationClarity = [
+  "Clear Attendance Data",
+  "Fair Visibility",
+  "Reliable Records",
+  "Leadership Clarity",
+  "Employee Trust",
+] as const;
+
+const attendanceWorkflowSteps = [
+  "Install",
+  "Clock In",
+  "Break",
+  "Clock Out",
+  "Admin Dashboard",
+] as const;
+
+const attendanceBenefits = [
+  "Clear Attendance",
+  "Less Admin Work",
+  "Transparency",
+  "Cross-Platform Support",
+  "Better Decisions",
+  "Trust-Based Culture",
+] as const;
+
+const finalVisionLegalPlatformPillar = [
+  "Public access",
+  "Case search",
+  "Justice Clock",
+  "Appointments",
+  "Lawyer dashboard",
+  "Admin control",
+] as const;
+
+const finalVisionAttendancePillar = [
+  "Attendance",
+  "Work hours",
+  "Breaks",
+  "Employee records",
+  "HR discipline",
+  "Trust culture",
+] as const;
+
+const finalVisionPhrases = [
+  "More organized.",
+  "More transparent.",
+  "More accountable.",
+  "More professional.",
 ] as const;
 
 const justiceClockFilters = [
@@ -3304,6 +3736,2586 @@ function AssignedCasesDocumentsSlide({ showScript }: { showScript: boolean }) {
   );
 }
 
+function EvidencePreparationSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-13"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1C120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.22),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide13}
+          alt="Evidence preparation atmosphere"
+          data-testid="legal-slide-13-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.84)_46%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_42%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[12%] top-[20%] h-64 w-64 rounded-full bg-[#B98245]/14 blur-[145px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              IMAGE EDITING
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-13-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Evidence Preparation
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5.1vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Edit carefully. Track every action.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Crop, rotate, highlight, label, blur sensitive information, and annotate case
+              material inside the platform.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.72 }}
+              data-testid="evidence-editor-accountability"
+              className="mt-7 flex flex-wrap gap-3"
+            >
+              {evidenceAccountabilityLabels.map((label) => (
+                <span
+                  key={label}
+                  className="rounded-full border border-[rgba(185,130,69,0.36)] bg-[rgba(17,10,6,0.6)] px-4 py-2 text-[0.72rem] uppercase tracking-[0.24em] text-[#D6A15C]"
+                >
+                  {label}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.15 }}
+              data-testid="legal-slide-13-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Every important action should have a clear record.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_center,rgba(214,161,92,0.12),transparent_44%)] blur-[28px]" />
+            <motion.div
+              initial={{ opacity: 0, x: 42, scale: 0.96 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="evidence-editor-shell"
+              className="relative mx-auto w-full max-w-[50rem] overflow-hidden rounded-[24px] border border-[rgba(185,130,69,0.48)] bg-[rgba(17,10,6,0.82)] shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_1px_0_rgba(214,161,92,0.12)] backdrop-blur-2xl"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.12),transparent_26%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.5),transparent)]" />
+
+              <div className="relative border-b border-[rgba(185,130,69,0.16)] px-4 py-4 sm:px-5">
+                <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <p className="text-[0.72rem] uppercase tracking-[0.32em] text-[#D6A15C]">
+                      Evidence Editor
+                    </p>
+                    <p className="mt-2 text-sm text-[#D8C7B2]">
+                      Protected preparation workspace with edit history and accountability.
+                    </p>
+                  </div>
+
+                  <div
+                    data-testid="evidence-editor-toolbar"
+                    className="flex flex-wrap justify-start gap-2 md:max-w-[28rem] md:justify-end"
+                  >
+                    {evidenceEditingTools.map((tool, index) => (
+                      <motion.span
+                        key={tool}
+                        initial={{ opacity: 0, y: 10, scale: 0.96 }}
+                        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                        transition={{ duration: 0.42, delay: 0.62 + index * 0.06 }}
+                        className="rounded-full border border-[rgba(185,130,69,0.44)] bg-[rgba(42,23,16,0.72)] px-3 py-2 text-[0.74rem] uppercase tracking-[0.14em] text-[#F3E7D3]"
+                      >
+                        {tool}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative grid gap-4 p-4 sm:p-5 lg:grid-cols-[1.12fr_0.78fr]">
+                <div className="flex flex-col gap-4">
+                  <div className="rounded-[22px] border border-[rgba(185,130,69,0.18)] bg-[rgba(42,23,16,0.48)] px-4 py-3">
+                    <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">
+                      Workspace
+                    </p>
+                    <p className="mt-2 text-sm text-[#D8C7B2]">
+                      Generic preview only. No live evidence or identifying data displayed.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-[1.14fr_0.86fr]">
+                    <div className="relative min-h-[18rem] overflow-hidden rounded-[22px] border border-[rgba(185,130,69,0.22)] bg-[linear-gradient(180deg,rgba(10,7,6,0.98),rgba(31,19,14,0.88))] p-4">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,161,92,0.08),transparent_22%)]" />
+                      <div className="relative h-full overflow-hidden rounded-[18px] border border-[rgba(214,161,92,0.12)] bg-[linear-gradient(180deg,rgba(245,238,227,0.94),rgba(223,208,189,0.88))] p-5">
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="rounded-full border border-[rgba(185,130,69,0.24)] bg-[rgba(255,255,255,0.72)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.22em] text-[#4A2B1B]">
+                            Review Copy
+                          </span>
+                          <span className="text-[0.68rem] uppercase tracking-[0.22em] text-[#6E4D37]">
+                            Safe Placeholder
+                          </span>
+                        </div>
+
+                        <div className="mt-5 grid gap-4">
+                          <div className="h-3 w-3/4 rounded-full bg-[rgba(74,43,27,0.2)]" />
+                          <div className="h-3 w-full rounded-full bg-[rgba(74,43,27,0.14)]" />
+                          <div className="h-3 w-5/6 rounded-full bg-[rgba(74,43,27,0.14)]" />
+                        </div>
+
+                        <div className="relative mt-6 rounded-[18px] border border-[rgba(74,43,27,0.16)] bg-[rgba(255,255,255,0.55)] p-4">
+                          <div className="grid gap-2">
+                            <div className="h-24 rounded-[16px] bg-[linear-gradient(135deg,rgba(74,43,27,0.18),rgba(191,174,153,0.28),rgba(74,43,27,0.14))]" />
+                            <div className="h-3 w-2/3 rounded-full bg-[rgba(74,43,27,0.18)]" />
+                            <div className="h-3 w-4/5 rounded-full bg-[rgba(74,43,27,0.12)]" />
+                          </div>
+
+                          <motion.svg viewBox="0 0 280 180" className="pointer-events-none absolute inset-0 h-full w-full">
+                            <motion.rect
+                              x="36"
+                              y="32"
+                              width="146"
+                              height="74"
+                              rx="16"
+                              fill="none"
+                              stroke="rgba(185,130,69,0.96)"
+                              strokeWidth="3"
+                              initial={{ pathLength: 0, opacity: 0 }}
+                              animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                              transition={{ duration: 0.7, delay: 0.95, ease: "easeOut" }}
+                            />
+                          </motion.svg>
+
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.96 }}
+                            animate={inView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 0.5, delay: 1.05, ease: "easeOut" }}
+                            className="absolute bottom-6 right-6 rounded-[14px] border border-[rgba(17,10,6,0.16)] bg-[rgba(17,10,6,0.76)] px-4 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-[#F3E7D3] backdrop-blur-xl"
+                          >
+                            Sensitive Area
+                          </motion.div>
+
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.96 }}
+                            animate={inView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 0.5, delay: 1.05, ease: "easeOut" }}
+                            className="absolute left-[58%] top-[52%] h-10 w-24 rounded-[12px] bg-[rgba(17,10,6,0.9)] blur-[6px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={
+                        inView
+                          ? {
+                              opacity: 1,
+                              boxShadow: [
+                                "0 20px 60px rgba(17,10,6,0.18)",
+                                "0 20px 68px rgba(185,130,69,0.22)",
+                                "0 20px 60px rgba(17,10,6,0.18)",
+                              ],
+                            }
+                          : {}
+                      }
+                      transition={{ duration: 1.2, delay: 1.02, ease: "easeOut" }}
+                      className="rounded-[22px] border border-[rgba(185,130,69,0.22)] bg-[rgba(10,7,6,0.72)] p-4"
+                    >
+                      <div className="flex items-center justify-between gap-3 border-b border-[rgba(185,130,69,0.16)] pb-3">
+                        <div>
+                          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">
+                            Audit Trail
+                          </p>
+                          <p className="mt-2 text-sm text-[#D8C7B2]">Edit History</p>
+                        </div>
+                        <ShieldCheck className="h-5 w-5 text-[#D6A15C]" />
+                      </div>
+
+                      <div className="mt-4 space-y-3">
+                        <div className="grid grid-cols-[1.05fr_0.95fr_0.72fr] gap-2 px-1 text-[0.68rem] uppercase tracking-[0.22em] text-[#BFAE99]">
+                          <span>Action</span>
+                          <span>User</span>
+                          <span>Time</span>
+                        </div>
+                        {evidenceAuditTrailRows.map((row, index) => (
+                          <motion.div
+                            key={`${row.action}-${row.user}-${row.time}`}
+                            initial={{ opacity: 0, x: 12 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.42, delay: 1.08 + index * 0.08 }}
+                            className="grid grid-cols-[1.05fr_0.95fr_0.72fr] gap-2 rounded-[18px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.6)] px-3 py-3"
+                          >
+                            <p className="text-sm text-[#F3E7D3]">{row.action}</p>
+                            <p className="text-sm text-[#D8C7B2]">{row.user}</p>
+                            <p className="text-sm text-[#D8C7B2]">{row.time}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <div className="grid gap-3 md:grid-cols-2">
+                    {["Before", "After"].map((label, index) => (
+                      <motion.div
+                        key={label}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.42, delay: 0.9 + index * 0.08 }}
+                        className="rounded-[20px] border border-[rgba(185,130,69,0.2)] bg-[rgba(42,23,16,0.52)] px-4 py-4"
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">
+                            {label}
+                          </p>
+                          <span className="h-2.5 w-2.5 rounded-full bg-[#D6A15C]" />
+                        </div>
+                        <div className="mt-4 space-y-2">
+                          <div className="h-16 rounded-[16px] bg-[linear-gradient(135deg,rgba(243,231,211,0.12),rgba(74,43,27,0.58))]" />
+                          <div className="flex gap-2">
+                            <span className="h-2 w-20 rounded-full bg-[rgba(243,231,211,0.16)]" />
+                            <span className="h-2 w-10 rounded-full bg-[rgba(216,199,178,0.16)]" />
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideThirteenScript}
+          visible={showScript}
+          testId="speaker-script-13"
+        />
+      </div>
+    </div>
+  );
+}
+
+function SharedNotesSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-14"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.11),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.24),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide14}
+          alt="Shared legal notes atmosphere"
+          data-testid="legal-slide-14-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_46%,rgba(5,4,3,0.6)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[15%] top-[24%] h-72 w-72 rounded-full bg-[#D6A15C]/12 blur-[155px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              CASE COLLABORATION
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-14-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Shared Notes
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5vw,5.3rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Case collaboration, connected to the case.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Hearing preparation points, client instructions, document observations, strategy
+              notes, and follow-up tasks stay in one shared place.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.1 }}
+              data-testid="legal-slide-14-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Teamwork stays clear and organized.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 24 }}
+              animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ duration: 0.75, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="shared-notes-shell"
+              className="relative mx-auto w-full max-w-[50rem] overflow-hidden rounded-[24px] border border-[rgba(185,130,69,0.46)] bg-[rgba(17,10,6,0.82)] px-4 py-4 shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_1px_0_rgba(214,161,92,0.12)] backdrop-blur-2xl sm:px-5 sm:py-5"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(214,161,92,0.1),transparent_40%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+              <div className="relative h-full min-h-[32rem] rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(10,7,6,0.44)] p-4 sm:p-5 lg:min-h-[38rem]">
+                <motion.svg
+                  viewBox="0 0 720 620"
+                  className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
+                >
+                  {[
+                    "M360 300 L166 132",
+                    "M360 300 L558 138",
+                    "M360 300 L160 296",
+                    "M360 300 L562 306",
+                    "M360 300 L360 490",
+                  ].map((path, index) => (
+                    <motion.path
+                      key={path}
+                      d={path}
+                      fill="none"
+                      stroke="rgba(214,161,92,0.7)"
+                      strokeWidth="1.6"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={inView ? { pathLength: 1, opacity: 0.92 } : {}}
+                      transition={{ duration: 0.85, delay: 0.72 + index * 0.05, ease: "easeOut" }}
+                    />
+                  ))}
+                </motion.svg>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.92, y: 20 }}
+                  animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                  transition={{ duration: 0.75, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  data-testid="shared-notes-case-card"
+                  className="relative z-10 mx-auto flex w-full max-w-[21rem] flex-col gap-5 overflow-hidden rounded-[28px] border border-[rgba(185,130,69,0.4)] bg-[linear-gradient(180deg,rgba(17,10,6,0.9),rgba(42,23,16,0.82))] p-5 shadow-[0_34px_110px_rgba(17,10,6,0.46)] lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
+                >
+                  <motion.div
+                    animate={inView ? { scale: [1, 1.04, 1], opacity: [0.3, 0.56, 0.3] } : {}}
+                    transition={{ duration: 2.6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                    className="pointer-events-none absolute inset-[-12px] rounded-[34px] border border-[rgba(214,161,92,0.22)]"
+                  />
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                        Case File
+                      </p>
+                      <p className="mt-3 text-lg font-semibold text-[#F3E7D3]">
+                        Shared matter workspace
+                      </p>
+                    </div>
+                    <div className="rounded-full border border-[rgba(214,161,92,0.24)] bg-[rgba(42,23,16,0.72)] p-3 text-[#D6A15C]">
+                      <FileText className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <p className="text-sm leading-7 text-[#D8C7B2]">
+                    Notes, follow-ups, and observations stay attached to the case instead of
+                    getting scattered.
+                  </p>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Added By",
+                      "Time Added",
+                      "Case Linked",
+                      "Authorized View",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[18px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.62)] px-3 py-3"
+                      >
+                        <p className="text-[0.68rem] uppercase tracking-[0.24em] text-[#D6A15C]">
+                          {item}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <div className="relative mt-6 grid gap-4 lg:mt-0 lg:h-full lg:block">
+                  {[
+                    "lg:absolute lg:left-4 lg:top-4 lg:max-w-[14rem]",
+                    "lg:absolute lg:right-4 lg:top-6 lg:max-w-[14rem]",
+                    "lg:absolute lg:left-3 lg:top-[41%] lg:max-w-[14rem]",
+                    "lg:absolute lg:right-3 lg:top-[43%] lg:max-w-[14rem]",
+                    "lg:absolute lg:left-1/2 lg:bottom-20 lg:max-w-[16rem] lg:-translate-x-1/2",
+                  ].map((positionClassName, index) => (
+                    <motion.div
+                      key={sharedNoteCards[index].title}
+                      initial={{ opacity: 0, y: 16, scale: 0.94 }}
+                      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                      transition={{ duration: 0.46, delay: 0.84 + index * 0.08 }}
+                      data-testid={`shared-note-card-${index + 1}`}
+                      className={`rounded-[22px] border border-[rgba(185,130,69,0.22)] bg-[rgba(42,23,16,0.72)] p-4 shadow-[0_18px_42px_rgba(5,4,3,0.22)] backdrop-blur-xl ${positionClassName}`}
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <p className="text-sm font-medium text-[#F3E7D3]">
+                          {sharedNoteCards[index].title}
+                        </p>
+                        <span className="rounded-full border border-[rgba(214,161,92,0.28)] bg-[rgba(17,10,6,0.58)] px-2.5 py-1 text-[0.62rem] uppercase tracking-[0.18em] text-[#D6A15C]">
+                          Note
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm text-[#D8C7B2]">{sharedNoteCards[index].detail}</p>
+                      <motion.div
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={inView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.34, delay: 1 + index * 0.06 }}
+                        className="mt-4 grid grid-cols-3 gap-2"
+                      >
+                        {[
+                          sharedNoteCards[index].addedBy,
+                          sharedNoteCards[index].timeAdded,
+                          sharedNoteCards[index].caseLinked,
+                        ].map((meta) => (
+                          <div
+                            key={`${sharedNoteCards[index].title}-${meta}`}
+                            className="rounded-[14px] bg-[rgba(17,10,6,0.42)] px-2 py-2"
+                          >
+                            <p className="text-[0.58rem] uppercase tracking-[0.16em] text-[#BFAE99]">
+                              {meta}
+                            </p>
+                          </div>
+                        ))}
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 1.02 }}
+                  data-testid="shared-notes-history"
+                  className="relative z-10 mt-4 rounded-[20px] border border-[rgba(185,130,69,0.2)] bg-[rgba(17,10,6,0.72)] px-4 py-4 lg:absolute lg:bottom-4 lg:left-4 lg:right-4 lg:mt-0"
+                >
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-[0.72rem] uppercase tracking-[0.32em] text-[#D6A15C]">
+                        Collaboration History
+                      </p>
+                      <p className="mt-2 text-sm text-[#D8C7B2]">
+                        Authorized lawyers see one case-linked stream of preparation notes.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {["Added By", "Time Added", "Case Linked", "Authorized View"].map((label) => (
+                        <span
+                          key={label}
+                          className="rounded-full border border-[rgba(185,130,69,0.24)] bg-[rgba(42,23,16,0.6)] px-3 py-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                        >
+                          {label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideFourteenScript}
+          visible={showScript}
+          testId="speaker-script-14"
+        />
+      </div>
+    </div>
+  );
+}
+
+function LawyerTimelineSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-15"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.1),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.22),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide15}
+          alt="Lawyer timeline atmosphere"
+          data-testid="legal-slide-15-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_44%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[16%] top-[28%] h-72 w-72 rounded-full bg-[#D6A15C]/12 blur-[150px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              UPDATE HISTORY
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-15-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Lawyer Timeline
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              The latest update, always in one place.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Case assignments, uploaded documents, edited images, admin notes, appointment
+              updates, and hearing date changes appear in a single timeline.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.1 }}
+              data-testid="legal-slide-15-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Less checking. Fewer missed updates.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: 42, scale: 0.96 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.75, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="lawyer-timeline-shell"
+              className="relative mx-auto w-full max-w-[48rem] overflow-hidden rounded-[24px] border border-[rgba(185,130,69,0.45)] bg-[rgba(17,10,6,0.78)] px-4 py-4 shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_1px_0_rgba(214,161,92,0.12)] backdrop-blur-2xl sm:px-5 sm:py-5"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(214,161,92,0.08),transparent_24%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+              <div className="relative rounded-[22px] border border-[rgba(185,130,69,0.16)] bg-[rgba(10,7,6,0.44)] p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-4 border-b border-[rgba(185,130,69,0.16)] pb-4">
+                  <div>
+                    <p className="text-[0.72rem] uppercase tracking-[0.32em] text-[#D6A15C]">
+                      Latest Update Feed
+                    </p>
+                    <p className="mt-2 text-sm text-[#D8C7B2]">
+                      One chronological place for case and activity updates.
+                    </p>
+                  </div>
+                  <Clock3 className="h-5 w-5 text-[#D6A15C]" />
+                </div>
+
+                <div className="relative mt-6 pl-6 sm:pl-10">
+                  <motion.div
+                    initial={{ scaleY: 0, opacity: 0.6 }}
+                    animate={inView ? { scaleY: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.9, delay: 0.68, ease: "easeOut" }}
+                    className="absolute left-[0.35rem] top-1 origin-top sm:left-3 h-[calc(100%-0.5rem)] w-px bg-[linear-gradient(180deg,rgba(214,161,92,0.92),rgba(185,130,69,0.34))]"
+                  />
+                  <motion.div
+                    animate={inView ? { y: ["0%", "82%", "82%"], opacity: [0, 0.9, 0] } : {}}
+                    transition={{ duration: 1.4, delay: 1.08, ease: "easeOut" }}
+                    className="absolute left-0 top-1 hidden h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,rgba(214,161,92,0),rgba(214,161,92,0.9),rgba(214,161,92,0))] sm:left-[0.42rem] sm:block"
+                  />
+
+                  <div className="space-y-4 sm:space-y-5">
+                    {lawyerTimelineEvents.map((event, index) => (
+                      <motion.div
+                        key={event.title}
+                        initial={{ opacity: 0, x: 18, scale: 0.95 }}
+                        animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+                        transition={{ duration: 0.46, delay: 0.84 + index * 0.08 }}
+                        data-testid={`lawyer-timeline-event-${index + 1}`}
+                        className={`relative rounded-[22px] border px-4 py-4 shadow-[0_18px_40px_rgba(5,4,3,0.2)] backdrop-blur-xl sm:px-5 ${
+                          event.latest
+                            ? "border-[rgba(214,161,92,0.42)] bg-[linear-gradient(180deg,rgba(42,23,16,0.86),rgba(17,10,6,0.86))]"
+                            : "border-[rgba(185,130,69,0.2)] bg-[rgba(42,23,16,0.72)]"
+                        }`}
+                      >
+                        <motion.span
+                          animate={
+                            inView && event.latest
+                              ? {
+                                  boxShadow: [
+                                    "0 0 0 0 rgba(214,161,92,0.22)",
+                                    "0 0 0 10px rgba(214,161,92,0)",
+                                    "0 0 0 0 rgba(214,161,92,0)",
+                                  ],
+                                }
+                              : {}
+                          }
+                          transition={{ duration: 1.1, delay: 1.18, ease: "easeOut" }}
+                          className="absolute -left-[1.65rem] top-7 flex h-4 w-4 items-center justify-center rounded-full bg-[#B98245] shadow-[0_0_20px_rgba(214,161,92,0.38)] sm:-left-[2.3rem]"
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#F3E7D3]" />
+                        </motion.span>
+
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                          <div>
+                            <p className="text-base font-medium text-[#F3E7D3]">{event.title}</p>
+                            <div className="mt-3 flex items-center gap-3">
+                              <span className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(17,10,6,0.54)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.18em] text-[#D6A15C]">
+                                {event.badge}
+                              </span>
+                              {event.time === "Today" ? (
+                                <span className="text-sm text-[#D8C7B2]">Today</span>
+                              ) : (
+                                <span className="flex items-center gap-2">
+                                  <span className="text-sm text-[#D8C7B2]">Time Bar</span>
+                                  <span className="h-2 w-16 rounded-full bg-[rgba(216,199,178,0.22)]" />
+                                </span>
+                              )}
+                            </div>
+                          </div>
+
+                          {event.latest ? (
+                            <div className="rounded-full border border-[rgba(214,161,92,0.28)] bg-[rgba(185,130,69,0.12)] px-3 py-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#F3E7D3]">
+                              Latest Update
+                            </div>
+                          ) : (
+                            <div className="rounded-full border border-[rgba(185,130,69,0.18)] bg-[rgba(17,10,6,0.44)] px-3 py-2 text-[0.7rem] uppercase tracking-[0.2em] text-[#BFAE99]">
+                              Logged
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideFifteenScript}
+          visible={showScript}
+          testId="speaker-script-15"
+        />
+      </div>
+    </div>
+  );
+}
+
+function AdminDashboardSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+  const moduleIcons = [ShieldCheck, CalendarDays, Clock3, BellRing, Monitor] as const;
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-16"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1C120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.24),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide16}
+          alt="Admin dashboard control center atmosphere"
+          data-testid="legal-slide-16-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_46%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[14%] top-[24%] h-72 w-72 rounded-full bg-[#D6A15C]/14 blur-[155px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              ADMIN CONTROL
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-16-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Admin Dashboard
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              The control center of the platform.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Users, appointments, Justice Clock data, lawyer activity, and notes oversight in one
+              operational view.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.1 }}
+              data-testid="legal-slide-16-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Leadership can see what is happening and where action is needed.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: 42, scale: 0.95 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="admin-dashboard-shell"
+              className="relative mx-auto w-full max-w-[50rem] overflow-hidden rounded-[26px] border border-[rgba(185,130,69,0.48)] bg-[rgba(17,10,6,0.82)] px-4 py-4 shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_0_0_1px_rgba(214,161,92,0.08)] backdrop-blur-2xl sm:px-5 sm:py-5"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(214,161,92,0.1),transparent_40%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+              <div className="relative min-h-[34rem] rounded-[22px] border border-[rgba(185,130,69,0.16)] bg-[rgba(10,7,6,0.48)] p-4 sm:p-5 lg:min-h-[39rem]">
+                <motion.svg
+                  viewBox="0 0 720 640"
+                  className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block"
+                >
+                  {[
+                    "M360 320 L188 132",
+                    "M360 320 L528 138",
+                    "M360 320 L150 318",
+                    "M360 320 L565 314",
+                    "M360 320 L362 516",
+                  ].map((path, index) => (
+                    <motion.path
+                      key={path}
+                      d={path}
+                      fill="none"
+                      stroke="rgba(214,161,92,0.68)"
+                      strokeWidth="1.5"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={inView ? { pathLength: 1, opacity: 0.9 } : {}}
+                      transition={{ duration: 0.85, delay: 0.78 + index * 0.05, ease: "easeOut" }}
+                    />
+                  ))}
+                  <motion.path
+                    d="M360 320 L528 138"
+                    fill="none"
+                    stroke="rgba(214,161,92,0.9)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeDasharray="12 18"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={inView ? { pathLength: 1, opacity: [0, 0.9, 0] } : {}}
+                    transition={{ duration: 1.4, delay: 1.24, ease: "easeOut" }}
+                  />
+                </motion.svg>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.65, ease: "easeOut" }}
+                  data-testid="admin-dashboard-center"
+                  className="relative z-10 mx-auto flex w-full max-w-[21rem] flex-col gap-5 overflow-hidden rounded-[28px] border border-[rgba(214,161,92,0.44)] bg-[linear-gradient(180deg,rgba(42,23,16,0.9),rgba(17,10,6,0.9))] p-5 shadow-[0_32px_100px_rgba(17,10,6,0.48)] lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                        Platform Overview
+                      </p>
+                      <p className="mt-3 text-lg font-semibold text-[#F3E7D3]">
+                        Operational control with leadership visibility.
+                      </p>
+                    </div>
+                    <div className="rounded-full border border-[rgba(214,161,92,0.28)] bg-[rgba(17,10,6,0.7)] p-3 text-[#D6A15C]">
+                      <LayoutDashboard className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <p className="text-sm leading-7 text-[#D8C7B2]">
+                    Oversight across users, schedules, data monitoring, lawyer activity, and note
+                    review.
+                  </p>
+
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {["Users", "Appointments", "Oversight"].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-[18px] border border-[rgba(185,130,69,0.18)] bg-[rgba(42,23,16,0.6)] px-3 py-3"
+                      >
+                        <p className="text-[0.68rem] uppercase tracking-[0.24em] text-[#D6A15C]">
+                          {item}
+                        </p>
+                        <div className="mt-3 h-2 rounded-full bg-[rgba(243,231,211,0.18)]" />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <div className="relative mt-6 grid gap-4 lg:mt-0 lg:h-full lg:block">
+                  {[
+                    "lg:absolute lg:left-6 lg:top-4 lg:max-w-[14rem]",
+                    "lg:absolute lg:right-6 lg:top-6 lg:max-w-[14rem]",
+                    "lg:absolute lg:left-3 lg:top-[42%] lg:max-w-[14rem]",
+                    "lg:absolute lg:right-3 lg:top-[42%] lg:max-w-[14rem]",
+                    "lg:absolute lg:left-1/2 lg:bottom-12 lg:max-w-[17rem] lg:-translate-x-1/2",
+                  ].map((positionClassName, index) => {
+                    const Icon = moduleIcons[index];
+                    const module = adminControlModules[index];
+
+                    return (
+                      <motion.div
+                        key={module.title}
+                        initial={{ opacity: 0, y: 16, scale: 0.95 }}
+                        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                        transition={{ duration: 0.46, delay: 0.92 + index * 0.08 }}
+                        data-testid={`admin-dashboard-module-${index + 1}`}
+                        className={`rounded-[22px] border border-[rgba(185,130,69,0.22)] bg-[rgba(42,23,16,0.72)] p-4 shadow-[0_18px_42px_rgba(5,4,3,0.22)] backdrop-blur-xl ${positionClassName}`}
+                      >
+                        <div className="mb-4 h-px w-full bg-[linear-gradient(90deg,rgba(214,161,92,0.9),rgba(214,161,92,0.12))]" />
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <p className="text-sm font-medium text-[#F3E7D3]">{module.title}</p>
+                            <p className="mt-3 text-sm text-[#D8C7B2]">{module.detail}</p>
+                          </div>
+                          <div className="rounded-full border border-[rgba(214,161,92,0.22)] bg-[rgba(17,10,6,0.56)] p-2.5 text-[#D6A15C]">
+                            <Icon className="h-4 w-4" />
+                          </div>
+                        </div>
+                        <div className="mt-4 flex items-center justify-between gap-3">
+                          <p className="text-[0.7rem] uppercase tracking-[0.18em] text-[#D6A15C]">
+                            {module.metric}
+                          </p>
+                          <motion.span
+                            animate={inView ? { scale: [1, 1.16, 1], opacity: [0.72, 1, 0.72] } : {}}
+                            transition={{
+                              duration: 2.4,
+                              delay: 1.24 + index * 0.08,
+                              repeat: Number.POSITIVE_INFINITY,
+                              ease: "easeInOut",
+                            }}
+                            className="h-2.5 w-2.5 rounded-full bg-[#D6A15C] shadow-[0_0_16px_rgba(214,161,92,0.42)]"
+                          />
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideSixteenScript}
+          visible={showScript}
+          testId="speaker-script-16"
+        />
+      </div>
+    </div>
+  );
+}
+
+function UserManagementSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-17"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.22),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide17Hero}
+          alt="User management control atmosphere"
+          data-testid="legal-slide-17-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_46%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_42%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[16%] top-[24%] h-64 w-64 rounded-full bg-[#D6A15C]/12 blur-[145px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              ADMIN CONTROL
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-17-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              User Management
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              The right access for the right person.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Admins can manage lawyers, staff, citizens, and other admins through structured roles
+              and permissions.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.12 }}
+              data-testid="legal-slide-17-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Role-based access protects sensitive legal information.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: 42, scale: 0.96 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="user-management-matrix"
+              className="relative mx-auto w-full max-w-[50rem] overflow-hidden rounded-[26px] border border-[rgba(185,130,69,0.48)] bg-[rgba(17,10,6,0.82)] px-4 py-4 shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_0_0_1px_rgba(214,161,92,0.08)] backdrop-blur-2xl sm:px-5 sm:py-5"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.12),transparent_30%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+              <div className="relative">
+                <div className="flex flex-col gap-3 border-b border-[rgba(185,130,69,0.18)] pb-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                      Role Permissions
+                    </p>
+                    <p className="mt-2 text-sm text-[#D8C7B2]">
+                      Structured visibility for lawyers, staff, citizens, and admins.
+                    </p>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.94 }}
+                    animate={
+                      inView
+                        ? {
+                            opacity: 1,
+                            scale: 1,
+                            boxShadow: [
+                              "0 0 0 rgba(214,161,92,0)",
+                              "0 0 28px rgba(214,161,92,0.22)",
+                              "0 0 0 rgba(214,161,92,0)",
+                            ],
+                          }
+                        : {}
+                    }
+                    transition={{ duration: 1.15, delay: 1.18, ease: "easeOut" }}
+                    data-testid="user-management-badge"
+                    className="rounded-full border border-[rgba(185,130,69,0.34)] bg-[rgba(42,23,16,0.66)] px-4 py-2 text-[0.72rem] uppercase tracking-[0.24em] text-[#F3E7D3]"
+                  >
+                    Role-Based Access
+                  </motion.div>
+                </div>
+
+                <div className="mt-5 overflow-hidden rounded-[22px] border border-[rgba(185,130,69,0.2)] bg-[rgba(10,7,6,0.48)]">
+                  <div className="grid grid-cols-[1.3fr_repeat(4,minmax(0,1fr))] gap-px bg-[rgba(185,130,69,0.14)]">
+                    <div className="bg-[rgba(17,10,6,0.84)] px-4 py-4 text-[0.72rem] uppercase tracking-[0.24em] text-[#D6A15C]">
+                      Role
+                    </div>
+                    {userManagementColumns.map((column) => (
+                      <div
+                        key={column}
+                        className="bg-[rgba(17,10,6,0.84)] px-3 py-4 text-center text-[0.72rem] uppercase tracking-[0.2em] text-[#D6A15C]"
+                      >
+                        {column}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="space-y-px bg-[rgba(185,130,69,0.14)]">
+                    {userManagementMatrix.map((row, rowIndex) => (
+                      <motion.div
+                        key={row.role}
+                        initial={{ opacity: 0, x: 14 }}
+                        animate={inView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.44, delay: 0.72 + rowIndex * 0.08 }}
+                        data-testid={`user-management-row-${rowIndex + 1}`}
+                        className="grid grid-cols-[1.3fr_repeat(4,minmax(0,1fr))] gap-px"
+                      >
+                        <div className="flex items-center bg-[rgba(17,10,6,0.84)] px-4 py-4 text-sm font-medium text-[#F3E7D3]">
+                          {row.role}
+                        </div>
+                        {row.permissions.map((allowed, permissionIndex) => (
+                          <div
+                            key={`${row.role}-${userManagementColumns[permissionIndex]}`}
+                            className="flex items-center justify-center bg-[rgba(17,10,6,0.84)] px-3 py-4"
+                          >
+                            <motion.span
+                              initial={{ opacity: 0, scale: 0.88 }}
+                              animate={inView ? { opacity: 1, scale: 1 } : {}}
+                              transition={{
+                                duration: 0.32,
+                                delay: 0.9 + rowIndex * 0.08 + permissionIndex * 0.04,
+                              }}
+                              className={`flex h-7 w-7 items-center justify-center rounded-full border ${
+                                allowed
+                                  ? "border-[rgba(214,161,92,0.5)] bg-[rgba(214,161,92,0.16)] text-[#D6A15C]"
+                                  : "border-[rgba(191,174,153,0.28)] bg-[rgba(42,23,16,0.48)] text-[#BFAE99]"
+                              }`}
+                            >
+                              {allowed ? (
+                                <CheckCircle2 className="h-4 w-4" />
+                              ) : (
+                                <span className="h-2.5 w-2.5 rounded-full border border-current" />
+                              )}
+                            </motion.span>
+                          </div>
+                        ))}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2.5">
+                  {userManagementActions.map((action, index) => (
+                    <motion.span
+                      key={action}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.36, delay: 0.98 + index * 0.05 }}
+                      className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(42,23,16,0.62)] px-3 py-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                    >
+                      {action}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideSeventeenScript}
+          visible={showScript}
+          testId="speaker-script-17"
+        />
+      </div>
+    </div>
+  );
+}
+
+function OperationalManagementSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-18"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.24),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide18Hero}
+          alt="Operational management atmosphere"
+          data-testid="legal-slide-18-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_45%,rgba(5,4,3,0.6)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_42%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[16%] top-[28%] h-72 w-72 rounded-full bg-[#D6A15C]/12 blur-[155px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              ADMIN OPERATIONS
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-18-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Operational Management
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Appointments and Justice Clock data, managed clearly.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Admins can organize bookings, update transparency data, and keep public-facing
+              information reliable.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.1 }}
+              data-testid="legal-slide-18-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Decisions should be based on real data, not guesswork.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <div data-testid="operational-management-shell" className="relative mx-auto w-full max-w-[49rem]">
+              <motion.svg viewBox="0 0 760 620" className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block">
+                <motion.path
+                  d="M380 220 L380 418"
+                  fill="none"
+                  stroke="rgba(214,161,92,0.72)"
+                  strokeWidth="2.2"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={inView ? { pathLength: 1, opacity: 0.9 } : {}}
+                  transition={{ duration: 0.85, delay: 0.92, ease: "easeOut" }}
+                />
+              </motion.svg>
+
+              <motion.div
+                initial={{ opacity: 0, x: 42, scale: 0.96 }}
+                animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+                transition={{ duration: 0.76, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                data-testid="appointment-operations-panel"
+                className="relative overflow-hidden rounded-[24px] border border-[rgba(185,130,69,0.44)] bg-[rgba(17,10,6,0.82)] p-5 shadow-[0_32px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.12),transparent_28%)]" />
+                <div className="relative">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                        Zone 1
+                      </p>
+                      <p className="mt-3 text-xl font-semibold text-[#F3E7D3]">
+                        Appointment Management
+                      </p>
+                    </div>
+                    <div className="rounded-full border border-[rgba(214,161,92,0.28)] bg-[rgba(42,23,16,0.72)] p-3 text-[#D6A15C]">
+                      <CalendarDays className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2.5">
+                    {appointmentManagementActions.map((action, index) => (
+                      <motion.span
+                        key={action}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.34, delay: 0.76 + index * 0.06 }}
+                        className="rounded-full border border-[rgba(185,130,69,0.3)] bg-[rgba(42,23,16,0.66)] px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                      >
+                        {action}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 42, scale: 0.96 }}
+                animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+                transition={{ duration: 0.76, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
+                data-testid="justice-clock-operations-panel"
+                className="relative mt-6 overflow-hidden rounded-[24px] border border-[rgba(185,130,69,0.44)] bg-[rgba(17,10,6,0.82)] p-5 shadow-[0_32px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.1),transparent_28%)]" />
+                <div className="relative">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                        Zone 2
+                      </p>
+                      <p className="mt-3 text-xl font-semibold text-[#F3E7D3]">
+                        Justice Clock Management
+                      </p>
+                    </div>
+                    <div className="rounded-full border border-[rgba(214,161,92,0.28)] bg-[rgba(42,23,16,0.72)] p-3 text-[#D6A15C]">
+                      <Clock3 className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2.5">
+                    {justiceClockManagementMetrics.map((item, index) => (
+                      <motion.span
+                        key={item}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.34, delay: 0.9 + index * 0.06 }}
+                        className="rounded-full border border-[rgba(185,130,69,0.3)] bg-[rgba(42,23,16,0.66)] px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                      >
+                        {item}
+                      </motion.span>
+                    ))}
+                  </div>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : {}}
+                    transition={{ duration: 0.35, delay: 1.24 }}
+                    className="mt-5 text-sm text-[#D8C7B2]"
+                  >
+                    English and Hindi transparency data can be maintained in one admin view.
+                  </motion.p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideEighteenScript}
+          visible={showScript}
+          testId="speaker-script-18"
+        />
+      </div>
+    </div>
+  );
+}
+
+function ActivityNotesOversightSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-19"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_52%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.24),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide19Hero}
+          alt="Activity oversight atmosphere"
+          data-testid="legal-slide-19-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_45%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_42%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[16%] top-[26%] h-72 w-72 rounded-full bg-[#D6A15C]/12 blur-[155px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              AUDIT VISIBILITY
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-19-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Activity &amp; Notes Oversight
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[10ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Visibility without micromanagement.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Case access, updates, notes, document changes, and required actions stay traceable.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.1 }}
+              data-testid="legal-slide-19-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Everything stays connected to the case.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: 42, scale: 0.96 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.78, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="activity-ledger-shell"
+              className="relative mx-auto w-full max-w-[50rem] overflow-hidden rounded-[26px] border border-[rgba(185,130,69,0.48)] bg-[rgba(17,10,6,0.82)] px-4 py-4 shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_0_0_1px_rgba(214,161,92,0.08)] backdrop-blur-2xl sm:px-5 sm:py-5"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.12),transparent_30%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+              <div className="relative">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={
+                    inView
+                      ? {
+                          opacity: 1,
+                          scale: 1,
+                          boxShadow: [
+                            "0 0 0 rgba(214,161,92,0)",
+                            "0 0 26px rgba(214,161,92,0.2)",
+                            "0 0 0 rgba(214,161,92,0)",
+                          ],
+                        }
+                      : {}
+                  }
+                  transition={{ duration: 1.1, delay: 1.12, ease: "easeOut" }}
+                  data-testid="activity-ledger-badge"
+                  className="inline-flex rounded-full border border-[rgba(185,130,69,0.34)] bg-[rgba(42,23,16,0.66)] px-4 py-2 text-[0.72rem] uppercase tracking-[0.22em] text-[#F3E7D3]"
+                >
+                  Accountability, not micromanagement
+                </motion.div>
+
+                <div className="mt-5 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+                  <div className="rounded-[24px] border border-[rgba(185,130,69,0.22)] bg-[rgba(10,7,6,0.48)] p-4 sm:p-5">
+                    <div className="flex items-center justify-between gap-4 border-b border-[rgba(185,130,69,0.18)] pb-4">
+                      <div>
+                        <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                          Activity Trail
+                        </p>
+                        <p className="mt-2 text-sm text-[#D8C7B2]">
+                          Case and document actions stay visible with timestamps.
+                        </p>
+                      </div>
+                      <ShieldCheck className="h-5 w-5 text-[#D6A15C]" />
+                    </div>
+
+                    <div className="relative mt-5 pl-5">
+                      <motion.div
+                        initial={{ scaleY: 0, opacity: 0 }}
+                        animate={inView ? { scaleY: 1, opacity: 1 } : {}}
+                        transition={{ duration: 0.8, delay: 0.92, ease: "easeOut" }}
+                        className="absolute left-1 top-1 h-[calc(100%-0.75rem)] origin-top w-px bg-[linear-gradient(180deg,rgba(214,161,92,0.92),rgba(185,130,69,0.2))]"
+                      />
+                      <div className="space-y-3.5">
+                        {activityLedgerRows.map((row, index) => (
+                          <motion.div
+                            key={row.label}
+                            initial={{ opacity: 0, x: 16 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.42, delay: 0.72 + index * 0.08 }}
+                            data-testid={`activity-ledger-row-${index + 1}`}
+                            className="relative rounded-[20px] border border-[rgba(185,130,69,0.18)] bg-[rgba(42,23,16,0.66)] px-4 py-4"
+                          >
+                            <motion.span
+                              initial={{ opacity: 0, scale: 0.88 }}
+                              animate={inView ? { opacity: 1, scale: 1 } : {}}
+                              transition={{ duration: 0.28, delay: 0.92 + index * 0.06 }}
+                              className="absolute -left-[1.18rem] top-6 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-[#B98245] shadow-[0_0_18px_rgba(214,161,92,0.42)]"
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#F3E7D3]" />
+                            </motion.span>
+                            <div className="flex items-center justify-between gap-3">
+                              <p className="text-sm font-medium text-[#F3E7D3]">{row.label}</p>
+                              {row.time === "Today" ? (
+                                <span className="text-sm text-[#D8C7B2]">Today</span>
+                              ) : (
+                                <span className="flex items-center gap-2 text-sm text-[#D8C7B2]">
+                                  Time Bar
+                                  <span className="h-2 w-14 rounded-full bg-[rgba(216,199,178,0.2)]" />
+                                </span>
+                              )}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.46, delay: 1.02 }}
+                    data-testid="notes-oversight-panel"
+                    className="rounded-[24px] border border-[rgba(185,130,69,0.22)] bg-[rgba(10,7,6,0.48)] p-4 sm:p-5"
+                  >
+                    <div className="flex items-center justify-between gap-4 border-b border-[rgba(185,130,69,0.18)] pb-4">
+                      <div>
+                        <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                          Notes Oversight
+                        </p>
+                        <p className="mt-2 text-sm text-[#D8C7B2]">
+                          Notes remain linked to case context and required action.
+                        </p>
+                      </div>
+                      <FileText className="h-5 w-5 text-[#D6A15C]" />
+                    </div>
+
+                    <div className="mt-5 space-y-3">
+                      {notesOversightRows.map((item, index) => (
+                        <motion.div
+                          key={item}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={inView ? { opacity: 1, x: 0 } : {}}
+                          transition={{ duration: 0.34, delay: 1.08 + index * 0.06 }}
+                          className="rounded-[18px] border border-[rgba(185,130,69,0.18)] bg-[rgba(42,23,16,0.62)] px-4 py-4"
+                        >
+                          <div className="flex items-center justify-between gap-3">
+                            <p className="text-sm text-[#F3E7D3]">{item}</p>
+                            <span className="rounded-full border border-[rgba(185,130,69,0.24)] bg-[rgba(17,10,6,0.54)] px-2.5 py-1 text-[0.62rem] uppercase tracking-[0.18em] text-[#D6A15C]">
+                              Traceable
+                            </span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideNineteenScript}
+          visible={showScript}
+          testId="speaker-script-19"
+        />
+      </div>
+    </div>
+  );
+}
+
+function LegalToOfficeOperationsBridgeSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-20"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_54%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.1),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.24),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide20Hero}
+          alt="Bridge from legal operations to office operations"
+          data-testid="legal-slide-20-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,4,3,0.9),rgba(17,10,6,0.76)),linear-gradient(90deg,rgba(5,4,3,0.92)_0%,rgba(17,10,6,0.72)_38%,rgba(5,4,3,0.66)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_36%,rgba(5,4,3,0.3)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute left-1/2 top-[48%] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D6A15C]/12 blur-[150px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto flex min-h-full max-w-[1480px] flex-col justify-center py-4 sm:py-8 lg:py-10">
+          <div className="max-w-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              FROM LEGAL OPERATIONS TO OFFICE OPERATIONS
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-20-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              From Legal Operations to Office Operations
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[13ch] font-display text-[clamp(3rem,5.1vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              A professional legal firm needs structured systems.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-3xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              The same principles now move inward: transparency, accountability, organization, and
+              trust.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.58, delay: 0.66 }}
+              className="mt-5 max-w-3xl text-sm tracking-[0.08em] text-[#D6A15C]"
+            >
+              Legal platform improves case workflows. Attendance software improves internal team
+              management.
+            </motion.p>
+          </div>
+
+          <div
+            data-testid="operations-bridge-shell"
+            className="relative mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -26 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.72, delay: 0.78, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="operations-bridge-legal"
+              className="rounded-[26px] border border-[rgba(185,130,69,0.42)] bg-[rgba(17,10,6,0.82)] p-5 shadow-[0_28px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+            >
+              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                Legal Platform
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                {legalOperationsBridgeItems.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(42,23,16,0.64)] px-3 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <div className="relative hidden h-full items-center justify-center lg:flex">
+              <motion.svg viewBox="0 0 220 80" className="h-20 w-[220px]">
+                <motion.path
+                  d="M10 40 L210 40"
+                  fill="none"
+                  stroke="rgba(214,161,92,0.86)"
+                  strokeWidth="2.2"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.85, delay: 1.02, ease: "easeOut" }}
+                />
+              </motion.svg>
+              <motion.div
+                animate={inView ? { x: [0, 86, 86], opacity: [0, 1, 0] } : {}}
+                transition={{ duration: 1.25, delay: 1.22, ease: "easeOut" }}
+                className="absolute flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(214,161,92,0.28)] bg-[rgba(17,10,6,0.86)] text-[#D6A15C]"
+              >
+                <ArrowRight className="h-4 w-4" />
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 26 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.72, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="operations-bridge-attendance"
+              className="rounded-[26px] border border-[rgba(185,130,69,0.42)] bg-[rgba(17,10,6,0.82)] p-5 shadow-[0_28px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+            >
+              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                Attendance Software
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                {attendanceOperationsBridgeItems.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(42,23,16,0.64)] px-3 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={inView ? { opacity: 0.86, y: 0 } : {}}
+            transition={{ duration: 0.56, delay: 1.34 }}
+            data-testid="legal-slide-20-footer"
+            className="mt-10 text-sm tracking-[0.12em] text-[rgba(214,161,92,0.94)]"
+          >
+            Next: Cross-Platform Attendance Software
+          </motion.p>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideTwentyScript}
+          visible={showScript}
+          testId="speaker-script-20"
+        />
+      </div>
+    </div>
+  );
+}
+
+function CrossPlatformAttendanceSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-21"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_54%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.22),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide21Hero}
+          alt="Cross-platform attendance atmosphere"
+          data-testid="legal-slide-21-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,4,3,0.95)_0%,rgba(17,10,6,0.86)_45%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[15%] top-[26%] h-72 w-72 rounded-full bg-[#D6A15C]/12 blur-[150px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto grid min-h-full max-w-[1480px] items-center gap-10 py-4 sm:py-8 lg:grid-cols-[0.72fr_1.08fr] lg:gap-14 lg:py-10">
+          <div className="max-w-3xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              ATTENDANCE SOFTWARE
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-21-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Cross-Platform Attendance Software
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[12ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Fair attendance visibility across every employee device.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-2xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Employees clock in, mark breaks, and clock out clearly while admins view reliable
+              attendance records.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 0.86, y: 0 } : {}}
+              transition={{ duration: 0.65, delay: 1.16 }}
+              data-testid="legal-slide-21-footer"
+              className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+            >
+              Support system, not surveillance tool.
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            <motion.div
+              initial={{ opacity: 0, x: 42, scale: 0.96 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.78, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="attendance-platform-shell"
+              className="relative mx-auto w-full max-w-[50rem] overflow-hidden rounded-[26px] border border-[rgba(185,130,69,0.48)] bg-[rgba(17,10,6,0.82)] px-4 py-4 shadow-[0_34px_100px_rgba(17,10,6,0.45),inset_0_0_0_1px_rgba(214,161,92,0.08)] backdrop-blur-2xl sm:px-5 sm:py-5"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.12),transparent_30%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+              <div className="relative grid gap-4 sm:grid-cols-3">
+                {attendancePlatforms.map((platform, index) => (
+                  <motion.div
+                    key={platform}
+                    initial={{ opacity: 0, y: 16, scale: 0.96 }}
+                    animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                    transition={{ duration: 0.42, delay: 0.68 + index * 0.08 }}
+                    data-testid={`attendance-platform-card-${platform.toLowerCase()}`}
+                    className="rounded-[22px] border border-[rgba(185,130,69,0.24)] bg-[rgba(42,23,16,0.68)] p-4 shadow-[0_18px_42px_rgba(5,4,3,0.22)]"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="rounded-full border border-[rgba(214,161,92,0.24)] bg-[rgba(17,10,6,0.58)] p-2.5 text-[#D6A15C]">
+                        <Monitor className="h-4 w-4" />
+                      </div>
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={inView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.3, delay: 0.82 + index * 0.08 }}
+                        className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(17,10,6,0.54)] px-2.5 py-1 text-[0.62rem] uppercase tracking-[0.18em] text-[#D6A15C]"
+                      >
+                        {platform}
+                      </motion.span>
+                    </div>
+                    <p className="mt-4 text-sm font-medium text-[#F3E7D3]">{platform}</p>
+                    <p className="mt-3 text-sm text-[#D8C7B2]">
+                      Consistent attendance workflow with the same reliable structure.
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-5 rounded-[24px] border border-[rgba(185,130,69,0.22)] bg-[rgba(10,7,6,0.48)] p-4 sm:p-5">
+                <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                  Employee Flow
+                </p>
+                <div data-testid="attendance-flow-shell" className="relative mt-5">
+                  <motion.div
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    animate={inView ? { scaleX: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.85, delay: 0.98, ease: "easeOut" }}
+                    className="absolute left-[10%] right-[10%] top-5 hidden h-px origin-left bg-[linear-gradient(90deg,rgba(214,161,92,0.88),rgba(185,130,69,0.3))] md:block"
+                  />
+                  <div className="grid gap-3 md:grid-cols-4">
+                    {attendanceEmployeeFlow.map((step, index) => (
+                      <motion.div
+                        key={step}
+                        initial={{ opacity: 0, y: 14, scale: 0.96 }}
+                        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                        transition={{ duration: 0.38, delay: 1.08 + index * 0.08 }}
+                        className="relative rounded-[20px] border border-[rgba(185,130,69,0.18)] bg-[rgba(42,23,16,0.62)] px-4 py-4"
+                      >
+                        <span className="absolute -top-2 left-4 flex h-6 w-6 items-center justify-center rounded-full border border-[rgba(214,161,92,0.34)] bg-[rgba(17,10,6,0.84)] text-[0.66rem] text-[#D6A15C]">
+                          {index + 1}
+                        </span>
+                        <p className="pt-3 text-sm font-medium text-[#F3E7D3]">{step}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.46, delay: 1.26 }}
+                data-testid="attendance-admin-summary"
+                className="mt-5 rounded-[24px] border border-[rgba(185,130,69,0.22)] bg-[rgba(10,7,6,0.48)] p-4 sm:p-5"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                      Admin View
+                    </p>
+                    <p className="mt-2 text-sm text-[#D8C7B2]">
+                      Reliable daily summaries for leadership and admin teams.
+                    </p>
+                  </div>
+                  <LayoutDashboard className="h-5 w-5 text-[#D6A15C]" />
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2.5">
+                  {attendanceAdminSummaryItems.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(42,23,16,0.62)] px-3 py-2 text-[0.7rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideTwentyOneScript}
+          visible={showScript}
+          testId="speaker-script-21"
+        />
+      </div>
+    </div>
+  );
+}
+
+function CurrentSituationSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-22"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_54%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.1),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.22),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide22Hero}
+          alt="Current attendance situation atmosphere"
+          data-testid="legal-slide-22-image"
+          initial={{ opacity: 0.88, scale: 1.06 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,4,3,0.9),rgba(17,10,6,0.82)),linear-gradient(90deg,rgba(5,4,3,0.92)_0%,rgba(17,10,6,0.72)_42%,rgba(5,4,3,0.6)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_42%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto flex min-h-full max-w-[1480px] flex-col justify-center py-4 sm:py-8 lg:py-10">
+          <div className="max-w-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              CURRENT SITUATION
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-22-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              Current Situation
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[12ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Manual tracking creates uncertainty.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-3xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Without a complete HR management system, attendance, records, breaks, and work-hour
+              visibility can become unclear.
+            </motion.p>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.74, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="current-situation-before"
+              className="rounded-[26px] border border-[rgba(185,130,69,0.38)] bg-[rgba(17,10,6,0.84)] p-5 shadow-[0_28px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+            >
+              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Before</p>
+              <p className="mt-4 text-xl font-semibold text-[#F3E7D3]">Manual records and unclear tracking.</p>
+              <div className="mt-5 space-y-3">
+                {currentSituationProblems.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.34, delay: 0.98 + index * 0.06 }}
+                    className="rounded-[18px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.62)] px-4 py-4"
+                  >
+                    <p className="text-sm text-[#F3E7D3]">{item}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={inView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.45, delay: 1.06 }}
+                className="hidden items-center justify-center lg:flex"
+              >
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={inView ? { scaleX: 1 } : {}}
+                  transition={{ duration: 0.72, delay: 1.02, ease: "easeOut" }}
+                  className="h-px w-28 origin-left bg-[linear-gradient(90deg,rgba(214,161,92,0.88),rgba(185,130,69,0.3))]"
+                />
+                <div className="mx-3 flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(214,161,92,0.3)] bg-[rgba(17,10,6,0.84)] text-[#D6A15C]">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={inView ? { scaleX: 1 } : {}}
+                  transition={{ duration: 0.72, delay: 1.12, ease: "easeOut" }}
+                  className="h-px w-28 origin-left bg-[linear-gradient(90deg,rgba(214,161,92,0.88),rgba(185,130,69,0.3))]"
+                />
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.74, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="current-situation-after"
+              className="rounded-[26px] border border-[rgba(185,130,69,0.38)] bg-[rgba(17,10,6,0.84)] p-5 shadow-[0_28px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+            >
+              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">After</p>
+              <p className="mt-4 text-xl font-semibold text-[#F3E7D3]">Clear attendance data and fair visibility.</p>
+              <div className="mt-5 space-y-3">
+                {currentSituationClarity.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.34, delay: 1.04 + index * 0.06 }}
+                    className="rounded-[18px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.62)] px-4 py-4"
+                  >
+                    <p className="text-sm text-[#F3E7D3]">{item}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.52, delay: 1.34 }}
+            data-testid="current-situation-balance"
+            className="mt-8 rounded-full border border-[rgba(185,130,69,0.32)] bg-[rgba(17,10,6,0.82)] px-5 py-3 text-sm tracking-[0.12em] text-[#F3E7D3] backdrop-blur-xl"
+          >
+            Clarity for leadership. Fairness for employees.
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 0.86, y: 0 } : {}}
+            transition={{ duration: 0.56, delay: 1.42 }}
+            data-testid="legal-slide-22-footer"
+            className="mt-6 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+          >
+            Attendance is not just time tracking. It is work culture.
+          </motion.p>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideTwentyTwoScript}
+          visible={showScript}
+          testId="speaker-script-22"
+        />
+      </div>
+    </div>
+  );
+}
+
+function AttendanceWorkflowSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+  const workflowIcons = [Monitor, Clock3, BellRing, CheckCircle2, LayoutDashboard] as const;
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-23"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_54%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.22),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide23Hero}
+          alt="Attendance workflow atmosphere"
+          data-testid="legal-slide-23-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,4,3,0.88),rgba(17,10,6,0.82)),linear-gradient(90deg,rgba(5,4,3,0.92)_0%,rgba(17,10,6,0.72)_42%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(5,4,3,0.28)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute right-[16%] top-[28%] h-72 w-72 rounded-full bg-[#D6A15C]/12 blur-[150px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto flex min-h-full max-w-[1480px] flex-col justify-center py-4 sm:py-8 lg:py-10">
+          <div className="max-w-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.16 }}
+              className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+            >
+              WORKFLOW
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.55, delay: 0.24 }}
+              data-testid="legal-slide-23-kicker"
+              className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+            >
+              How It Works
+            </motion.p>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+              animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.88, delay: 0.32 }}
+              className="mt-6 max-w-[12ch] font-display text-[clamp(3rem,5vw,5.35rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+            >
+              Simple for employees. Clear for admins.
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.76, delay: 0.5 }}
+              className="mt-5 max-w-3xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+            >
+              Clock in, mark breaks, clock out, and view attendance data through a reliable
+              dashboard.
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.78, delay: 0.72, ease: [0.22, 1, 0.36, 1] }}
+            data-testid="attendance-workflow-shell"
+            className="relative mt-10 overflow-hidden rounded-[28px] border border-[rgba(185,130,69,0.44)] bg-[rgba(17,10,6,0.82)] px-5 py-5 shadow-[0_34px_100px_rgba(17,10,6,0.45)] backdrop-blur-2xl"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(214,161,92,0.12),transparent_30%)]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(214,161,92,0.48),transparent)]" />
+
+            <div className="relative">
+              <div className="relative">
+                <motion.div
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  animate={inView ? { scaleX: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.9, delay: 0.98, ease: "easeOut" }}
+                  className="absolute left-[7%] right-[7%] top-8 hidden h-px origin-left bg-[linear-gradient(90deg,rgba(214,161,92,0.88),rgba(185,130,69,0.3))] lg:block"
+                />
+                <div className="grid gap-4 lg:grid-cols-5">
+                  {attendanceWorkflowSteps.map((step, index) => {
+                    const Icon = workflowIcons[index];
+
+                    return (
+                      <motion.div
+                        key={step}
+                        initial={{ opacity: 0, y: 16, scale: 0.96 }}
+                        animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                        transition={{ duration: 0.4, delay: 1.1 + index * 0.08 }}
+                        data-testid={`attendance-workflow-step-${index + 1}`}
+                        className="relative rounded-[22px] border border-[rgba(185,130,69,0.22)] bg-[rgba(42,23,16,0.68)] px-4 py-5 shadow-[0_18px_42px_rgba(5,4,3,0.22)]"
+                      >
+                        <span className="absolute -top-2 left-4 flex h-6 w-6 items-center justify-center rounded-full border border-[rgba(214,161,92,0.34)] bg-[rgba(17,10,6,0.84)] text-[0.66rem] text-[#D6A15C]">
+                          {index + 1}
+                        </span>
+                        <div className="rounded-full border border-[rgba(214,161,92,0.24)] bg-[rgba(17,10,6,0.58)] p-3 text-[#D6A15C] w-fit">
+                          <Icon className="h-4 w-4" />
+                        </div>
+                        <p className="mt-4 text-sm font-medium text-[#F3E7D3]">{step}</p>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {attendanceBenefits.map((benefit, index) => (
+                  <motion.div
+                    key={benefit}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.34, delay: 1.44 + index * 0.06 }}
+                    data-testid={`attendance-benefit-card-${index + 1}`}
+                    className="rounded-[20px] border border-[rgba(185,130,69,0.18)] bg-[rgba(10,7,6,0.48)] px-4 py-4"
+                  >
+                    <p className="text-sm text-[#F3E7D3]">{benefit}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 0.86, y: 0 } : {}}
+            transition={{ duration: 0.56, delay: 1.68 }}
+            data-testid="legal-slide-23-footer"
+            className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+          >
+            Employee process easy rahega and admin view clear rahega.
+          </motion.p>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideTwentyThreeScript}
+          visible={showScript}
+          testId="speaker-script-23"
+        />
+      </div>
+    </div>
+  );
+}
+
+function FinalVisionSlide({ showScript }: { showScript: boolean }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(ref, { amount: 0.42, once: false });
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      data-testid="legal-slide-24"
+      data-nested-scroll="true"
+      className="nested-scroll relative h-full overflow-y-auto"
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#050403_0%,#11100E_54%,#1B120C_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(185,130,69,0.12),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(74,43,27,0.24),transparent_30%)]" />
+      {!imageError ? (
+        <motion.img
+          src={slide24Hero}
+          alt="Final legal workplace vision atmosphere"
+          data-testid="legal-slide-24-image"
+          initial={{ scale: 1.06 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          onError={() => setImageError(true)}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.7 }}
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,4,3,0.88),rgba(17,10,6,0.82)),linear-gradient(90deg,rgba(5,4,3,0.92)_0%,rgba(17,10,6,0.72)_42%,rgba(5,4,3,0.58)_100%)]"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_38%,rgba(5,4,3,0.3)_100%)]" />
+      <div className="absolute inset-0 bg-grain opacity-[0.05] [background-size:10px_10px]" />
+      <div className="absolute left-1/2 top-[42%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D6A15C]/12 blur-[160px]" />
+
+      <div className="relative min-h-full px-6 py-6 sm:px-10 lg:px-16 lg:py-12">
+        <div className="mx-auto flex min-h-full max-w-[1480px] flex-col items-center justify-center py-4 text-center sm:py-8 lg:py-10">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.16 }}
+            className="text-[0.74rem] uppercase tracking-[0.34em] text-[#D6A15C]"
+          >
+            FINAL VISION
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.24 }}
+            data-testid="legal-slide-24-kicker"
+            className="mt-5 text-sm tracking-[0.08em] text-[#F3E7D3]"
+          >
+            Final Vision
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 28, filter: "blur(10px)" }}
+            animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            transition={{ duration: 0.88, delay: 0.32 }}
+            className="mt-6 max-w-[12ch] font-display text-[clamp(3rem,5vw,5.55rem)] font-semibold leading-[0.92] text-[#F3E7D3] [text-shadow:0_2px_24px_rgba(0,0,0,0.55)]"
+          >
+            Building a smarter legal workplace.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.76, delay: 0.5 }}
+            className="mt-5 max-w-4xl text-base leading-8 text-[#D8C7B2] sm:text-lg"
+          >
+            Better service for clients. Better clarity for lawyers. Better control for admins.
+            Better trust for employees.
+          </motion.p>
+
+          <div className="relative mt-10 grid w-full max-w-[68rem] gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.74, delay: 0.82, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="final-vision-pillar-legal-platform"
+              className="rounded-[28px] border border-[rgba(185,130,69,0.42)] bg-[rgba(17,10,6,0.82)] p-5 shadow-[0_28px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+            >
+              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                Legal Platform
+              </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-2.5">
+                {finalVisionLegalPlatformPillar.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(42,23,16,0.64)] px-3 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <div className="hidden items-center justify-center lg:flex">
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={inView ? { scaleX: 1, opacity: 1 } : {}}
+                transition={{ duration: 0.82, delay: 1.1, ease: "easeOut" }}
+                className="h-px w-28 origin-left bg-[linear-gradient(90deg,rgba(214,161,92,0.88),rgba(185,130,69,0.3))]"
+              />
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.74, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              data-testid="final-vision-pillar-attendance-software"
+              className="rounded-[28px] border border-[rgba(185,130,69,0.42)] bg-[rgba(17,10,6,0.82)] p-5 shadow-[0_28px_90px_rgba(17,10,6,0.44)] backdrop-blur-2xl"
+            >
+              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">
+                Attendance Software
+              </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-2.5">
+                {finalVisionAttendancePillar.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(42,23,16,0.64)] px-3 py-2 text-[0.72rem] uppercase tracking-[0.18em] text-[#F3E7D3]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div
+            data-testid="final-vision-closing-line"
+            className="mt-10 flex flex-wrap justify-center gap-3"
+          >
+            {finalVisionPhrases.map((phrase, index) => (
+              <motion.span
+                key={phrase}
+                initial={{ opacity: 0, y: 10 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.36, delay: 1.28 + index * 0.12 }}
+                className="rounded-full border border-[rgba(185,130,69,0.28)] bg-[rgba(17,10,6,0.76)] px-4 py-2 text-sm tracking-[0.1em] text-[#F3E7D3]"
+              >
+                {phrase}
+              </motion.span>
+            ))}
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.56, delay: 1.9 }}
+            data-testid="legal-slide-24-footer"
+            className="mt-8 text-sm tracking-[0.08em] text-[rgba(214,161,92,0.92)]"
+          >
+            More organized. More transparent. More accountable. More professional.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.56, delay: 2.08 }}
+            data-testid="final-vision-thanks"
+            className="mt-4 text-lg tracking-[0.14em] text-[#F3E7D3]"
+          >
+            Thank you.
+          </motion.p>
+        </div>
+
+        <PracticeScriptOverlay
+          script={slideTwentyFourScript}
+          visible={showScript}
+          testId="speaker-script-24"
+        />
+      </div>
+    </div>
+  );
+}
+
 function PulseFlowBridgeSlide({
   onNavigate,
   active,
@@ -3712,12 +6724,108 @@ function LegacyPresentation({
           sectionRef={(element) => {
             sectionRefs.current[12] = element;
           }}
-          className="bg-[#0F172A]"
+          className="bg-[#050403]"
         >
-          <PulseFlowBridgeSlide
-            active={activeIndex === 12}
-            onNavigate={onNavigateToAttendance}
-          />
+          <EvidencePreparationSlide showScript={practiceMode && activeIndex === 12} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[13] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <SharedNotesSlide showScript={practiceMode && activeIndex === 13} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[14] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <LawyerTimelineSlide showScript={practiceMode && activeIndex === 14} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[15] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <AdminDashboardSlide showScript={practiceMode && activeIndex === 15} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[16] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <UserManagementSlide showScript={practiceMode && activeIndex === 16} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[17] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <OperationalManagementSlide showScript={practiceMode && activeIndex === 17} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[18] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <ActivityNotesOversightSlide showScript={practiceMode && activeIndex === 18} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[19] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <LegalToOfficeOperationsBridgeSlide showScript={practiceMode && activeIndex === 19} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[20] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <CrossPlatformAttendanceSlide showScript={practiceMode && activeIndex === 20} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[21] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <CurrentSituationSlide showScript={practiceMode && activeIndex === 21} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[22] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <AttendanceWorkflowSlide showScript={practiceMode && activeIndex === 22} />
+        </SectionShell>
+
+        <SectionShell
+          sectionRef={(element) => {
+            sectionRefs.current[23] = element;
+          }}
+          className="bg-[#050403]"
+        >
+          <FinalVisionSlide showScript={practiceMode && activeIndex === 23} />
         </SectionShell>
       </div>
     </div>
