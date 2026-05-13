@@ -958,13 +958,13 @@ function PublicWebsiteDemoSlide({ active }: { active: boolean }) {
 
 function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
   const incomingMessages = [
-    { text: "Sir, mera case ka kya hua?", tone: "incoming" as const },
-    { text: "Sir, next date kab hai?", tone: "incoming" as const },
-    { text: "Sir, bail mili ya nahi?", tone: "incoming" as const },
-    { text: "Sir, judge saab mood mein the kya?", tone: "incoming" as const },
-    { text: "Sir, main tension loon ya ghar jaake so jaun?", tone: "incoming" as const },
+    { text: "Could you please share the latest update on my case?", tone: "incoming" as const },
+    { text: "When is the next hearing date scheduled?", tone: "incoming" as const },
+    { text: "Has the bail application been decided?", tone: "incoming" as const },
+    { text: "Was any important direction issued today?", tone: "incoming" as const },
+    { text: "Please let me know if any action is required from my side.", tone: "incoming" as const },
     {
-      text: "Raat ke 2 baje hai, so jao bhai. Agla update website pe mil jayega.",
+      text: "All verified updates will be available on the case status portal.",
       tone: "outgoing" as const,
     },
   ];
@@ -1253,9 +1253,9 @@ function JusticeClockDemoSlide({ active }: { active: boolean }) {
 
 function AppointmentBookingDemoSlide({ active }: { active: boolean }) {
   const incomingCalls = [
-    ["Annoying Client", "Sir aaj 1 baje milte hai?", "OK!"],
-    ["Annoying Client", "Sir loose motion ho raha hai 7 baje milte hai?", "Acha okay!"],
-    ["Time taking client", "Sir bas 2 min baat karna tha?", "Ohh! achaa"],
+    ["Client Inquiry", "Could we schedule a meeting today at 1:00 PM?", "Let me check the calendar."],
+    ["Client Inquiry", "Would 7:00 PM be available for a consultation?", "I will confirm the next available slot."],
+    ["Prospective Client", "I need a brief discussion regarding my matter.", "Please use the booking link to reserve a time."],
   ] as const;
   const { index, goPrev, goNext, goTo } = useAutoCarousel(active, 2, 5000, 9000);
   const visibleCallStep = useSequencedStep(active && index === 0, incomingCalls.length, 3000, false);
