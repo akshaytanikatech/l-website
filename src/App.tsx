@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AttendancePresentation } from "@/components/AttendancePresentation";
+import { LegalWorkplacePresentation } from "@/components/LegalWorkplacePresentation";
 import { Button } from "@/components/ui/button";
 import landscapeVideo from "@/media/attendence/employee_attendence_view_landscape.mp4";
 import portraitImage from "@/media/attendence/employee_attendence_view_portrait.png";
@@ -6860,6 +6861,6 @@ export default function App() {
   return route === "/attendence" ? (
     <AttendancePresentation onNavigateHome={() => navigate("/")} />
   ) : (
-    <LegacyPresentation onNavigateToAttendance={() => navigate("/attendence")} />
+    <LegalWorkplacePresentation />
   );
 }
