@@ -9,6 +9,7 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock3,
+  Database,
   FileText,
   LayoutDashboard,
   LockKeyhole,
@@ -33,6 +34,7 @@ import slide17Hero from "@/media/lawyer/slide-17.jpg";
 import slide21Hero from "@/media/lawyer/slide-21.jpg";
 import slide24Hero from "@/media/lawyer/slide-24.jpg";
 import { cn } from "@/lib/utils";
+import iphoneFrame from "../../iphone_placeholder.png";
 
 const slideMeta = [
   {
@@ -84,16 +86,16 @@ const slideMeta = [
       "Lawyer dashboard is a personal workspace for advocates. Yahan lawyer assigned cases, hearing dates, documents, notes, and client instructions dekh sakta hai. Legal work mein confidentiality very important hai. Har cheez har kisi ko nahi dikhni chahiye. Simple rule is: right person, right access, nothing extra.",
   },
   {
-    id: "shared-notes",
-    label: "Shared Notes",
-    script:
-      "Kabhi-kabhi ek case par multiple lawyers kaam karte hain. Ek document check karta hai, dusra argument prepare karta hai, teesra research karta hai. Agar sab notes WhatsApp, email, diary, aur random files mein rahenge, toh confusion pakka hai. Shared notes se team alag-alag jagah se kaam kare, phir bhi case information ek jagah connected rahegi.",
-  },
-  {
     id: "admin",
     label: "Admin Dashboard",
     script:
       "Now comes the admin dashboard. Simple Hindi mein bolein toh, yeh chief ka adda hai. But presentation-friendly language mein, this is the control center. Admin can manage users, assign roles, control appointments, update notices, and manage Justice Clock data. This is not for unnecessary micromanagement. This is for visibility, accountability, and better control.",
+  },
+  {
+    id: "attendance-intro",
+    label: "Attendance Introduction",
+    script:
+      "Before we show the attendance software, this transition explains the backend idea. Check-ins, breaks, approvals, and analytics should move through one secure system, so management gets clarity without manual chasing.",
   },
   {
     id: "attendance",
@@ -444,6 +446,32 @@ function useAutoCarousel(
     };
   }, [active, delayMs, firstAdvanceDelayMs, reduceMotion, total]);
 
+  useEffect(() => {
+    if (!active || total <= 1) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (target && /input|textarea|select/i.test(target.tagName)) {
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setIndex((current) => (current - 1 + total) % total);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setIndex((current) => (current + 1) % total);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [active, total]);
+
   const goTo = (next: number) => setIndex(((next % total) + total) % total);
   const goPrev = () => setIndex((current) => (current - 1 + total) % total);
   const goNext = () => setIndex((current) => (current + 1) % total);
@@ -465,36 +493,14 @@ function StoryControls({
   onSelect: (index: number) => void;
 }) {
   return (
-    <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          aria-label="Previous story"
-          onClick={onPrev}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(185,130,69,0.22)] bg-[rgba(17,10,6,0.82)] text-[#F3E7D3] transition hover:border-[rgba(214,161,92,0.4)] hover:text-[#FFE6B8]"
-        >
-          <ArrowLeft className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          aria-label="Next story"
-          onClick={onNext}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(185,130,69,0.22)] bg-[rgba(17,10,6,0.82)] text-[#F3E7D3] transition hover:border-[rgba(214,161,92,0.4)] hover:text-[#FFE6B8]"
-        >
-          <ArrowRight className="h-4 w-4" />
-        </button>
-      </div>
-
-      <div className="flex items-center gap-2">
+    <div className="mt-5 flex items-center justify-end">
+      <div className="flex min-w-[180px] items-center gap-2">
         {Array.from({ length: total }).map((_, index) => (
-          <button
+          <span
             key={index}
-            type="button"
-            aria-label={`Go to story ${index + 1}`}
-            onClick={() => onSelect(index)}
             className={cn(
-              "h-2.5 rounded-full transition-all",
-              index === activeIndex ? "w-8 bg-[#D6A15C]" : "w-2.5 bg-[rgba(214,161,92,0.36)]",
+              "h-2 rounded-full transition-all",
+              index === activeIndex ? "flex-[1.45] bg-[#D6A15C]" : "flex-1 bg-[rgba(214,161,92,0.28)]",
             )}
           />
         ))}
@@ -538,11 +544,21 @@ function PhoneFrame({
   label?: string;
 }) {
   return (
-    <div className="mx-auto w-full max-w-[290px] rounded-[38px] border border-[rgba(255,255,255,0.08)] bg-[#0c0b10] p-2.5 shadow-[0_26px_90px_rgba(0,0,0,0.38)]">
-      <div className="rounded-[31px] border border-[rgba(214,161,92,0.16)] bg-[linear-gradient(180deg,#15141c_0%,#09080d_100%)] p-3">
-        <div className="mx-auto mb-3 h-1.5 w-20 rounded-full bg-[rgba(255,255,255,0.14)]" />
-        {label ? <p className="mb-3 text-center text-[0.66rem] uppercase tracking-[0.26em] text-[#AFA7BC]">{label}</p> : null}
-        <div className="rounded-[24px] bg-[linear-gradient(180deg,#1b1a26_0%,#101018_100%)] p-3">
+    <div className="relative mx-auto h-[552px] w-[292px] shrink-0">
+      <div className="absolute left-[15px] top-[52px] h-[466px] w-[262px] rounded-[40px] bg-[#0b0a0e] shadow-[0_30px_90px_rgba(0,0,0,0.42)]" />
+      <img
+        src={iphoneFrame}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-20 h-full w-full select-none object-contain"
+      />
+      <div className="absolute left-[24px] top-[56px] z-10 flex h-[462px] w-[244px] flex-col overflow-hidden rounded-[32px] bg-[linear-gradient(180deg,#171622_0%,#09090f_100%)] p-3">
+        {label ? (
+          <p className="mb-3 shrink-0 text-center text-[0.62rem] uppercase tracking-[0.22em] text-[#AFA7BC]">
+            {label}
+          </p>
+        ) : null}
+        <div className="min-h-0 flex-1 overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#1b1a26_0%,#101018_100%)] p-3">
           {children}
         </div>
       </div>
@@ -939,7 +955,7 @@ function PublicWebsiteDemoSlide({ active }: { active: boolean }) {
                           "Certified copy counters open till 4:30 PM",
                           "Public holiday circular updated for 17 May",
                         ].map((item) => (
-                          <div key={item} className="rounded-[18px] border border-white/10 bg-white/6 px-4 py-3 text-sm leading-6">
+                          <div key={item} className="rounded-[18px] border border-white/10 bg-white/5 px-4 py-3 text-sm leading-6">
                             {item}
                           </div>
                         ))}
@@ -968,7 +984,7 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
       tone: "outgoing" as const,
     },
   ];
-  const { index, goPrev, goNext, goTo } = useAutoCarousel(active, 2, 5000, 15000);
+  const { index, goPrev, goNext, goTo } = useAutoCarousel(active, 3, 5200, 15000);
   const visibleMessageStep = useSequencedStep(
     active && index === 0,
     incomingMessages.length,
@@ -981,6 +997,8 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
   );
   const caseQuery = "Shah Bano case";
   const query = useTypedText(caseQuery, active && index === 1, 2);
+  const searchStep = useSequencedStep(active && index === 1, 3, 1100, false);
+  const phoneLinkStep = useSequencedStep(active && index === 2, 4, 1200, false);
 
   return (
     <StageBackdrop active={active} image={slide8}>
@@ -1006,10 +1024,10 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
                 className="grid gap-5 xl:grid-cols-[0.82fr_1.18fr]"
               >
                 <PhoneFrame label="Client Side">
-                  <div className="grid gap-3">
-                    <div className="grid grid-cols-4 gap-2">
+                  <div className="grid gap-2.5">
+                    <div className="grid grid-cols-2 gap-1.5">
                       {["WhatsApp", "Calls", "SMS", "Browser"].map((item) => (
-                        <div key={item} className="rounded-[18px] bg-white/6 px-2 py-3 text-center text-[0.62rem] uppercase tracking-[0.16em] text-[#CFC6D7]">
+                        <div key={item} className="rounded-[13px] bg-white/5 px-2 py-2 text-center text-[0.52rem] uppercase tracking-[0.07em] text-[#CFC6D7]">
                           {item}
                         </div>
                       ))}
@@ -1023,7 +1041,7 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.35, ease: "easeOut" }}
                           className={cn(
-                            "rounded-[22px] px-4 py-3 text-sm leading-6",
+                            "rounded-[17px] px-3 py-2.5 text-xs leading-5",
                             message.tone === "incoming"
                               ? "bg-[#0E2D24] text-[#D9F5E9]"
                               : "ml-auto max-w-[86%] bg-[#3B2A18] text-[#FFE6BF]",
@@ -1046,22 +1064,42 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
                         <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">Lawyer becomes a 24x7 update helpline.</p>
                       </div>
                     </div>
-                    <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    <div className="mt-5 grid gap-3">
                       {[
-                        "Same update request repeated all day",
-                        "Client depends on calls instead of a system",
-                        "Lawyer loses focus before hearings",
-                        "Late-night messaging still continues",
-                      ].map((item) => (
-                        <div key={item} className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-4 text-sm text-[#F3E7D3]">
-                          {item}
-                        </div>
+                        ["09:15 AM", "Client asks for update", "WhatsApp dependency"],
+                        ["12:40 PM", "Same status requested again", "No self-service lookup"],
+                        ["04:10 PM", "Advocate checks file manually", "Hearing focus breaks"],
+                        ["09:30 PM", "Late-night follow-up continues", "Client anxiety increases"],
+                      ].map(([time, title, note], timelineIndex) => (
+                        <motion.div
+                          key={time}
+                          initial={{ opacity: 0, x: 14 }}
+                          animate={active ? { opacity: 1, x: 0 } : {}}
+                          transition={{ duration: 0.28, delay: 0.14 + timelineIndex * 0.08 }}
+                          className="grid grid-cols-[86px_1fr] gap-3 rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-3"
+                        >
+                          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#D6A15C]">{time}</p>
+                          <div>
+                            <p className="text-sm font-medium text-[#F3E7D3]">{title}</p>
+                            <p className="mt-1 text-xs text-[#D8C7B2]">{note}</p>
+                          </div>
+                        </motion.div>
                       ))}
+                    </div>
+                    <div className="mt-5 rounded-[18px] border border-[#D6A15C]/20 bg-[#D6A15C]/10 px-4 py-3">
+                      <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-[#F3E7D3]">
+                        {["Client", "Call / WhatsApp", "Advocate checks file", "Manual reply", "Same query repeats"].map((item, flowIndex) => (
+                          <span key={item} className="flex items-center gap-2">
+                            <span>{item}</span>
+                            {flowIndex < 4 ? <ChevronRight className="h-3.5 w-3.5 text-[#D6A15C]" /> : null}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
               </motion.div>
-            ) : (
+            ) : index === 1 ? (
               <motion.div
                 key="case-solution"
                 initial={{ opacity: 0, x: 24 }}
@@ -1074,33 +1112,47 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
                     <div className="grid gap-4 xl:grid-cols-[0.95fr_1.05fr]">
                       <div>
                         <p className="text-[0.72rem] uppercase tracking-[0.26em] text-[#8B5A2B]">Customer Search</p>
-                        <div className="mt-4 flex items-center gap-3 rounded-[18px] border border-[rgba(31,23,17,0.08)] bg-white/84 px-4 py-4">
-                          <Search className="h-4 w-4 text-[#8B5A2B]" />
-                          <span className="text-sm">{query || "Shah Bano case"}</span>
-                          <span className="ml-auto rounded-full bg-[#F5E6C8] px-3 py-1 text-[0.66rem] uppercase tracking-[0.16em] text-[#7C4B29]">Search</span>
-                        </div>
                         <div className="mt-4 grid gap-3">
-                          {["Search by case title", "Search by party name", "Search by advocate", "Search by case number"].map((item) => (
-                            <div key={item} className="rounded-[16px] bg-[#F8F2EA] px-4 py-3 text-sm text-[#43322A]">
-                              {item}
+                          {[
+                            ["Phone Number", "+91 98XXXXXX15"],
+                            ["Case Number", "SCR 844 / 1985"],
+                            ["Direct Case Link", "justice.bedi.in/case/shah-bano"],
+                          ].map(([label, value], fieldIndex) => (
+                            <div
+                              key={label}
+                              className={cn(
+                                "rounded-[18px] border px-4 py-3",
+                                fieldIndex === 1
+                                  ? "border-[#C89B5A] bg-[#FFF7E9]"
+                                  : "border-[rgba(31,23,17,0.08)] bg-white/84",
+                              )}
+                            >
+                              <p className="text-[0.62rem] uppercase tracking-[0.18em] text-[#8B5A2B]">{label}</p>
+                              <p className="mt-1 text-sm text-[#31241B]">{fieldIndex === 1 ? query || value : value}</p>
                             </div>
                           ))}
                         </div>
+                        <div className="mt-4 rounded-[18px] bg-[#2B2F45] px-4 py-4 text-center text-sm font-medium text-[#F7E9D1]">
+                          {searchStep < 1 ? "Searching verified court records..." : searchStep < 2 ? "Matching party, case number, and citation..." : "View Result"}
+                        </div>
                       </div>
 
-                      <div className="rounded-[24px] border border-[rgba(31,23,17,0.08)] bg-white/88 p-5 shadow-[0_20px_50px_rgba(35,24,16,0.08)]">
+                      <motion.div
+                        initial={{ opacity: 0, y: 14 }}
+                        animate={searchStep >= 2 ? { opacity: 1, y: 0 } : { opacity: 0.45, y: 8 }}
+                        className="rounded-[24px] border border-[rgba(31,23,17,0.08)] bg-white/88 p-5 shadow-[0_20px_50px_rgba(35,24,16,0.08)]"
+                      >
                         <div className="flex items-center justify-between gap-3">
                           <p className="text-[0.72rem] uppercase tracking-[0.26em] text-[#8B5A2B]">Search Result</p>
                           <span className="rounded-full bg-[#DCF5E4] px-3 py-1 text-[0.66rem] uppercase tracking-[0.16em] text-[#236447]">Result Found</span>
                         </div>
                         <div className="mt-4 grid gap-3">
                           {[
-                            ["Case Title", "Mohd. Ahmed Khan v. Shah Bano Begum"],
+                            ["Case", "Mohd. Ahmed Khan vs Shah Bano Begum And Ors"],
                             ["Court", "Supreme Court of India"],
                             ["Judgment Date", "23 April 1985"],
-                            ["Citation", "1985 AIR 945"],
-                            ["Issue", "Maintenance rights under Section 125 CrPC"],
-                            ["Outcome", "Maintenance allowed for Shah Bano Begum"],
+                            ["Citation", "1985 AIR 945 / 1985 SCR (3) 844"],
+                            ["Summary", "Divorced Muslim woman's right to maintenance under Section 125 CrPC."],
                           ].map(([label, value]) => (
                             <div key={label} className="grid gap-2 rounded-[18px] border border-[rgba(31,23,17,0.08)] bg-[#FCF8F2] px-4 py-3 md:grid-cols-[170px_1fr]">
                               <p className="text-[0.66rem] uppercase tracking-[0.18em] text-[#8B5A2B]">{label}</p>
@@ -1108,15 +1160,87 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
                             </div>
                           ))}
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </BrowserChrome>
               </motion.div>
+            ) : (
+              <motion.div
+                key="case-direct-link"
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.28 }}
+                className="grid gap-5 xl:grid-cols-[1.12fr_0.88fr]"
+              >
+                <BrowserChrome badge="Advocate Share">
+                  <div className="rounded-[24px] border border-[rgba(31,23,17,0.08)] bg-[linear-gradient(180deg,rgba(250,244,236,0.98)_0%,rgba(243,234,223,0.94)_100%)] p-5 text-[#31241B]">
+                    <div className="grid gap-4 xl:grid-cols-[0.92fr_1.08fr]">
+                      <div className="rounded-[22px] border border-[rgba(31,23,17,0.08)] bg-white/84 p-5">
+                        <p className="text-[0.72rem] uppercase tracking-[0.26em] text-[#8B5A2B]">Case Status Link</p>
+                        <p className="mt-3 text-2xl font-semibold leading-tight text-[#31241B]">Share one verified link instead of repeating the same update.</p>
+                        <div className="mt-5 rounded-[18px] border border-[#C89B5A] bg-[#FFF7E9] px-4 py-4 text-sm text-[#43322A]">
+                          justice.bedi.in/case/mohd-ahmed-khan-vs-shah-bano
+                        </div>
+                        <motion.div
+                          animate={phoneLinkStep >= 1 ? { width: "100%" } : { width: "16%" }}
+                          className="mt-4 h-2 rounded-full bg-[linear-gradient(90deg,#D6A15C,#2B2F45)]"
+                        />
+                      </div>
+                      <div className="rounded-[22px] border border-[rgba(31,23,17,0.08)] bg-white/84 p-5">
+                        <p className="text-[0.72rem] uppercase tracking-[0.26em] text-[#8B5A2B]">Client Receives</p>
+                        <div className="mt-4 grid gap-3">
+                          {[
+                            ["1", "Advocate sends direct case-status link"],
+                            ["2", "Client taps the link on phone"],
+                            ["3", "Verified case result opens instantly"],
+                          ].map(([num, text], stepIndex) => (
+                            <div
+                              key={text}
+                              className={cn(
+                                "flex items-center gap-3 rounded-[18px] px-4 py-3 text-sm",
+                                phoneLinkStep >= stepIndex ? "bg-[#DCF5E4] text-[#173A2C]" : "bg-[#F8F2EA] text-[#43322A]",
+                              )}
+                            >
+                              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-xs font-semibold text-[#7C4B29]">{num}</span>
+                              {text}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </BrowserChrome>
+
+                <PhoneFrame label="Client Link">
+                  <div className="grid gap-3">
+                    <div className="rounded-[20px] bg-[#0E2D24] px-4 py-3 text-sm leading-6 text-[#D9F5E9]">
+                      Here is your verified case-status link.
+                      <div className="mt-3 rounded-[16px] border border-[#9BE7B4]/20 bg-[#102F3A] px-3 py-3 text-xs text-[#BFECD9]">
+                        justice.bedi.in/case/shah-bano
+                      </div>
+                    </div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={phoneLinkStep >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                      className="rounded-[20px] border border-[#D6A15C]/24 bg-[#25170D] p-3 text-[#F3E7D3]"
+                    >
+                      <p className="text-[0.58rem] uppercase tracking-[0.18em] text-[#D6A15C]">Case Opened</p>
+                      <p className="mt-2 text-sm font-semibold leading-5">Mohd. Ahmed Khan vs Shah Bano Begum And Ors</p>
+                      <div className="mt-3 grid gap-2 text-xs leading-5 text-[#D8C7B2]">
+                        <span>Supreme Court of India</span>
+                        <span>23 April 1985</span>
+                        <span>1985 AIR 945 / 1985 SCR (3) 844</span>
+                      </div>
+                    </motion.div>
+                  </div>
+                </PhoneFrame>
+              </motion.div>
             )}
           </AnimatePresence>
 
-          <StoryControls activeIndex={index} total={2} onPrev={goPrev} onNext={goNext} onSelect={goTo} />
+          <StoryControls activeIndex={index} total={3} onPrev={goPrev} onNext={goNext} onSelect={goTo} />
         </DemoPanel>
       </div>
     </StageBackdrop>
@@ -1124,12 +1248,16 @@ function CaseStatusSearchDemoSlide({ active }: { active: boolean }) {
 }
 
 function JusticeClockDemoSlide({ active }: { active: boolean }) {
-  const headlineCards = [
-    { label: "Institution", value: 412 },
-    { label: "Disposal", value: 376 },
-    { label: "CCR", value: 91, suffix: "%" },
-    { label: "Listed Today", value: 267 },
+  const { index, goPrev, goNext, goTo } = useAutoCarousel(active, 2, 6500);
+  const boardRows = [
+    ["Today", "49,615", "37,777", "76%"],
+    ["Last Day", "54,130", "35,625", "66%"],
+    ["Last Week", "253,143", "175,073", "69%"],
+    ["Last Month", "1,857,475", "1,347,553", "73%"],
+    ["This Year", "11,358,359", "10,340,387", "91%"],
+    ["Last Year", "26,667,928", "25,344,578", "95%"],
   ];
+  const journey = ["Filing", "Listing", "Hearing", "Adjournment", "Judgment", "Compliance"];
 
   return (
     <StageBackdrop active={active} image={slide10}>
@@ -1158,93 +1286,145 @@ function JusticeClockDemoSlide({ active }: { active: boolean }) {
         </div>
 
         <DemoPanel className="p-5">
-          <div className="overflow-hidden rounded-[28px] border border-[rgba(227,207,170,0.2)] bg-[linear-gradient(180deg,#E7D7BE_0%,#D8C3A2_100%)] shadow-[0_24px_70px_rgba(16,8,4,0.25)]">
-            <div className="border-b border-[rgba(59,34,20,0.14)] bg-[linear-gradient(90deg,#631A1A_0%,#892B1B_38%,#27385D_100%)] px-6 py-5 text-[#FFF4E5]">
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#F3CD8E]">JUSTICE CLOCK</p>
-                  <p className="mt-2 text-2xl font-semibold">Supreme Court / Bombay Board Style Display</p>
+          <AnimatePresence mode="wait">
+            {index === 0 ? (
+              <motion.div
+                key="clock-current"
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.28 }}
+                className="overflow-hidden rounded-[18px] border border-cyan-400/24 bg-[#020917] text-white shadow-[0_24px_90px_rgba(0,0,0,0.38)]"
+              >
+                <div className="flex items-center justify-between border-b border-cyan-400/14 bg-[#061126] px-4 py-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                    <span className="ml-2 text-xs text-white/60">justice-clock.district.gov.in/dashboard</span>
+                  </div>
+                  <span className="text-xs font-medium text-cyan-200">Live board</span>
                 </div>
-                <div className="rounded-full border border-white/18 bg-white/10 px-4 py-2 text-sm tracking-[0.18em] text-[#FDE8C0]">
-                  न्याय घड़ी
+                <div className="grid grid-cols-[64px_1fr_160px] items-center border-b border-cyan-400/18 px-5 py-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-400/24 bg-cyan-400/8 text-cyan-300">
+                    <Scale className="h-5 w-5" />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-[1.42rem] font-semibold uppercase leading-tight tracking-[0.02em] text-cyan-300">Virtual Justice Clock for District</p>
+                    <p className="text-[1.42rem] font-semibold uppercase leading-tight tracking-[0.02em] text-cyan-300">Judiciary of India</p>
+                    <p className="mt-2 text-[1rem] font-semibold uppercase">Institution, Disposal & Case Clearance Rate</p>
+                  </div>
+                  <div className="text-right text-sm font-semibold leading-tight">Saturday, 30/05/2026<br />23:25:51</div>
                 </div>
-              </div>
-            </div>
-
-            <div className="grid gap-4 p-5 lg:grid-cols-[0.92fr_1.08fr]">
-              <div className="grid gap-4 sm:grid-cols-2">
-                {headlineCards.map((item, index) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={active ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.34, delay: 0.14 + index * 0.06 }}
-                    className="rounded-[22px] border border-[rgba(59,34,20,0.12)] bg-[rgba(255,248,238,0.84)] p-4 text-[#332418]"
-                  >
-                    <p className="text-[0.66rem] uppercase tracking-[0.2em] text-[#7C4B29]">{item.label}</p>
-                    <p className="mt-3 text-[2rem] font-semibold text-[#1F2440]">
-                      <CountText target={item.value} active={active} suffix={item.suffix ?? ""} />
-                    </p>
-                    <div className="mt-3 flex items-center gap-2 text-sm text-[#1D6C4A]">
-                      <span className="live-dot" />
-                      Live board sync
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="rounded-[24px] border border-[rgba(59,34,20,0.12)] bg-[rgba(255,248,238,0.92)] p-4 text-[#332418]">
-                <div className="grid grid-cols-[1.5fr_0.8fr_0.8fr_0.8fr] gap-2 border-b border-[rgba(59,34,20,0.12)] px-3 pb-3">
-                  {["Board", "Institution", "Disposal", "CCR"].map((item) => (
-                    <p key={item} className="text-[0.66rem] uppercase tracking-[0.2em] text-[#7C4B29]">
+                <div className="grid grid-cols-3 gap-3 px-5 py-3">
+                  {["All States", "All Districts", "All Establishments"].map((item) => (
+                    <div key={item} className="rounded-[8px] border border-cyan-400/28 bg-[#061126] px-4 py-3 text-center text-base font-semibold uppercase">
                       {item}
-                    </p>
+                    </div>
                   ))}
                 </div>
-                <div className="mt-2 grid gap-2">
-                  {[
-                    ["Supreme Court", 128, 116, "91%"],
-                    ["Bombay High Court", 412, 376, "91%"],
-                    ["City Civil Court", 286, 244, "85%"],
-                    ["Sessions Matters", 94, 82, "87%"],
-                    ["Commercial Benches", 63, 58, "92%"],
-                  ].map(([label, institution, disposal, ccr], index) => (
+                <div className="mx-5 mb-4 overflow-hidden border border-cyan-400/22">
+                  <div className="grid grid-cols-[1.05fr_1.28fr_1.02fr_0.44fr] border-b border-cyan-300 bg-[#061126] text-center text-[1.28rem] font-bold uppercase">
+                    {["Duration", "Institution", "Disposal", "CCR"].map((heading) => (
+                      <div key={heading} className="border-r border-cyan-400/18 px-4 py-3 last:border-r-0">{heading}</div>
+                    ))}
+                  </div>
+                  {boardRows.map((row, rowIndex) => (
                     <motion.div
-                      key={label}
+                      key={row[0]}
                       initial={{ opacity: 0, y: 10 }}
                       animate={active ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.28, delay: 0.36 + index * 0.06 }}
-                      className="grid grid-cols-[1.5fr_0.8fr_0.8fr_0.8fr] gap-2 rounded-[16px] border border-[rgba(59,34,20,0.08)] bg-[#FCF7EF] px-3 py-3"
+                      transition={{ duration: 0.24, delay: rowIndex * 0.05 }}
+                      className="grid grid-cols-[1.05fr_1.28fr_1.02fr_0.44fr] border-b border-cyan-400/16 bg-[#071126] text-center text-[1.18rem] last:border-b-0"
                     >
-                      <p className="text-sm font-medium text-[#31241B]">{label}</p>
-                      <p className="text-sm text-[#1F2440]">{institution}</p>
-                      <p className="text-sm text-[#1F2440]">{disposal}</p>
-                      <p className="text-sm text-[#1D6C4A]">{ccr}</p>
+                      {row.map((cell) => (
+                        <div key={cell} className="border-r border-cyan-400/16 px-4 py-2.5 last:border-r-0">{cell}</div>
+                      ))}
                     </motion.div>
                   ))}
                 </div>
-
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-[18px] border border-[rgba(59,34,20,0.08)] bg-[#FCF7EF] px-4 py-3">
-                    <p className="text-[0.66rem] uppercase tracking-[0.18em] text-[#7C4B29]">Age-wise Pendency</p>
-                    <div className="mt-3 grid gap-2 text-sm text-[#31241B]">
-                      <div className="flex justify-between gap-3"><span>0-1 year</span><span>384</span></div>
-                      <div className="flex justify-between gap-3"><span>1-3 years</span><span>671</span></div>
-                      <div className="flex justify-between gap-3"><span>3+ years</span><span>383</span></div>
+                <p className="px-5 pb-3 text-right text-xs font-semibold text-white/90">Last Reviewed and Updated on : 30-05-2026</p>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="clock-insights"
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.28 }}
+                className="rounded-[24px] border border-cyan-400/20 bg-[#020917] p-5 text-white"
+              >
+                <div className="flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-4">
+                  <div>
+                    <p className="text-[0.72rem] uppercase tracking-[0.34em] text-cyan-300">Justice Clock 2.0: From Numbers to Insights</p>
+                    <p className="mt-2 text-2xl font-semibold">Counts show activity. Insights show where justice needs attention.</p>
+                  </div>
+                  <div className="rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm text-cyan-200">Executive demo screen</div>
+                </div>
+                <div className="mt-5 grid gap-4 xl:grid-cols-[0.82fr_1.05fr_1.13fr]">
+                  <div className="rounded-[18px] border border-white/10 bg-white/5 p-4 opacity-78">
+                    <p className="text-[0.7rem] uppercase tracking-[0.24em] text-cyan-300">Current View</p>
+                    <p className="mt-1 text-sm text-white/60">Raw numbers, limited context</p>
+                    <div className="mt-4 grid gap-2">
+                      {boardRows.slice(0, 5).map((row) => (
+                        <div key={row[0]} className="grid grid-cols-[1fr_0.9fr_0.9fr] rounded-[10px] bg-[#061126] px-3 py-2 text-xs text-white/70">
+                          <span>{row[0]}</span><span>{row[1]}</span><span>{row[3]}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="rounded-[18px] border border-[rgba(59,34,20,0.08)] bg-[#FCF7EF] px-4 py-3">
-                    <p className="text-[0.66rem] uppercase tracking-[0.18em] text-[#7C4B29]">Today's Board</p>
-                    <div className="mt-3 grid gap-2 text-sm text-[#31241B]">
-                      <div className="flex justify-between gap-3"><span>Listed matters</span><span>267</span></div>
-                      <div className="flex justify-between gap-3"><span>Urgent mentions</span><span>19</span></div>
-                      <div className="flex justify-between gap-3"><span>Orders uploaded</span><span>52</span></div>
+                  <div className="rounded-[18px] border border-white/10 bg-white/5 p-4">
+                    <p className="text-[0.7rem] uppercase tracking-[0.24em] text-cyan-300">Case Journey</p>
+                    <div className="mt-5 grid gap-3">
+                      {journey.map((item, itemIndex) => {
+                        const warned = [1, 3, 4].includes(itemIndex);
+                        return (
+                          <div key={item} className="flex items-center gap-3">
+                            <div className={cn("flex h-9 w-9 items-center justify-center rounded-full border text-xs", warned ? "border-amber-300/40 bg-amber-300/16 text-amber-200" : "border-cyan-300/30 bg-cyan-300/10 text-cyan-200")}>{itemIndex + 1}</div>
+                            <div className="flex-1 rounded-[12px] bg-[#061126] px-3 py-2 text-sm">{item}</div>
+                            {warned ? <span className="rounded-full bg-amber-300/14 px-3 py-1 text-xs text-amber-200">{itemIndex === 1 ? "Listing delay" : itemIndex === 3 ? "Repeated adjournments" : "Judgment delay"}</span> : null}
+                          </div>
+                        );
+                      })}
+                      <div className="rounded-[14px] border border-amber-300/20 bg-amber-300/10 px-4 py-3 text-sm text-amber-100">Old pending cases are flagged before they disappear into averages.</div>
+                    </div>
+                  </div>
+                  <div className="grid gap-4">
+                    <div className="grid gap-4 md:grid-cols-3">
+                      {[
+                        ["Pendency Age Pyramid", [28, 48, 72, 52, 34]],
+                        ["Bottleneck Heatmap", [42, 78, 36, 66, 90]],
+                        ["Urgency vs Delay Matrix", [20, 58, 74, 46, 86]],
+                      ].map(([title, values]) => (
+                        <div key={title as string} className="rounded-[16px] border border-white/10 bg-white/5 p-3">
+                          <p className="text-xs font-medium text-white/90">{title as string}</p>
+                          <div className="mt-4 flex h-24 items-end gap-1.5">
+                            {(values as number[]).map((value, valueIndex) => (
+                              <div key={valueIndex} className="flex-1 rounded-t bg-[linear-gradient(180deg,#22d3ee,#164e63)]" style={{ height: `${value}%` }} />
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="grid gap-3 sm:grid-cols-4">
+                      {["Median case age", "Time to disposal", "Cases older than 5 years", "Listing-to-hearing delay"].map((item) => (
+                        <div key={item} className="rounded-[14px] border border-cyan-300/16 bg-cyan-300/8 px-3 py-3 text-xs text-cyan-50">{item}</div>
+                      ))}
+                    </div>
+                    <div className="grid gap-2 sm:grid-cols-5">
+                      {["Waiting litigant", "Legal cost", "Uncertainty", "Delayed relief", "Access gap"].map((item) => (
+                        <div key={item} className="rounded-[12px] bg-white/5 px-3 py-2 text-xs text-white/70">{item}</div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
+                <p className="mt-5 rounded-[18px] border border-[#D6A15C]/24 bg-[#D6A15C]/10 px-5 py-4 font-display text-2xl leading-tight text-[#F3E7D3]">
+                  Justice is not only how many cases move — it is how timely, fair, and meaningful the movement is.
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <StoryControls activeIndex={index} total={2} onPrev={goPrev} onNext={goNext} onSelect={goTo} />
         </DemoPanel>
       </div>
     </StageBackdrop>
@@ -1255,7 +1435,6 @@ function AppointmentBookingDemoSlide({ active }: { active: boolean }) {
   const incomingCalls = [
     ["Client Inquiry", "Could we schedule a meeting today at 1:00 PM?", "Let me check the calendar."],
     ["Client Inquiry", "Would 7:00 PM be available for a consultation?", "I will confirm the next available slot."],
-    ["Prospective Client", "I need a brief discussion regarding my matter.", "Please use the booking link to reserve a time."],
   ] as const;
   const { index, goPrev, goNext, goTo } = useAutoCarousel(active, 2, 5000, 9000);
   const visibleCallStep = useSequencedStep(active && index === 0, incomingCalls.length, 3000, false);
@@ -1286,7 +1465,7 @@ function AppointmentBookingDemoSlide({ active }: { active: boolean }) {
                 className="grid gap-5 xl:grid-cols-[0.82fr_1.18fr]"
               >
                 <PhoneFrame label="Incoming Calls">
-                  <div className="grid gap-3">
+                  <div className="grid gap-2.5">
                     <AnimatePresence initial={false}>
                       {visibleCalls.map(([name, line, reply], callIndex) => (
                         <motion.div
@@ -1295,19 +1474,19 @@ function AppointmentBookingDemoSlide({ active }: { active: boolean }) {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.35, ease: "easeOut" }}
-                          className="rounded-[22px] bg-white/6 p-3"
+                          className="rounded-[18px] bg-white/5 p-2.5"
                           data-testid={`appointment-phone-message-${callIndex + 1}`}
                         >
-                          <div className="flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2E394D] text-[#F6E9D6]">
+                          <div className="flex items-start gap-2.5">
+                            <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#2E394D] text-[#F6E9D6]">
                               <PhoneCall className="h-4 w-4" />
                             </div>
-                            <div>
-                              <p className="text-sm font-medium text-[#F4EDF7]">{name}</p>
-                              <p className="mt-1 text-sm text-[#C7C0D1]">{line}</p>
+                            <div className="min-w-0">
+                              <p className="text-xs font-medium text-[#F4EDF7]">{name}</p>
+                              <p className="mt-1 text-xs leading-5 text-[#C7C0D1]">{line}</p>
                             </div>
                           </div>
-                          <div className="mt-3 ml-auto max-w-[75%] rounded-[18px] bg-[#3B2A18] px-3 py-2 text-sm text-[#FFE6BF]">
+                          <div className="mt-2.5 ml-auto max-w-[78%] rounded-[14px] bg-[#3B2A18] px-3 py-2 text-xs leading-5 text-[#FFE6BF]">
                             {reply}
                           </div>
                         </motion.div>
@@ -1318,17 +1497,29 @@ function AppointmentBookingDemoSlide({ active }: { active: boolean }) {
 
                 <div className="rounded-[24px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-5">
                   <p className="text-[0.72rem] uppercase tracking-[0.28em] text-[#D6A15C]">Manual Scheduling Problem</p>
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="mt-5 grid gap-3">
                     {[
-                      "Calls keep changing time slots",
-                      "Lawyer attention gets interrupted",
-                      "No shared view for the team",
-                      "Client still feels uncertain",
-                    ].map((item) => (
-                      <div key={item} className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-4 text-sm text-[#F3E7D3]">
-                        {item}
-                      </div>
+                      ["10:00 AM", "Client asks for available time"],
+                      ["11:30 AM", "Advocate is in hearing"],
+                      ["01:00 PM", "Clerk checks calendar manually"],
+                      ["03:15 PM", "Slot already taken"],
+                      ["06:00 PM", "Client asks again"],
+                    ].map(([time, text], rowIndex) => (
+                      <motion.div
+                        key={time}
+                        initial={{ opacity: 0, x: 14 }}
+                        animate={active ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.28, delay: 0.14 + rowIndex * 0.08 }}
+                        className="grid grid-cols-[86px_1fr] gap-3 rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-3"
+                      >
+                        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#D6A15C]">{time}</p>
+                        <p className="text-sm text-[#F3E7D3]">{text}</p>
+                      </motion.div>
                     ))}
+                  </div>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-[18px] border border-red-300/20 bg-red-300/10 px-4 py-3 text-sm text-[#F3E7D3]">Before: calls, diary checks, unclear slots</div>
+                    <div className="rounded-[18px] border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm text-[#F3E7D3]">After: slots, confirmation, reminder</div>
                   </div>
                 </div>
               </motion.div>
@@ -1413,6 +1604,8 @@ function LawyerDashboardDemoSlide({ active }: { active: boolean }) {
     "Confidential documents",
     "Two-factor authentication",
   ];
+  const authStep = useSequencedStep(active, 3, 1050, false);
+  const dashboardStep = useSequencedStep(active && authStep === 2, 5, 720, false);
 
   return (
     <StageBackdrop active={active} image={slide17Hero}>
@@ -1440,102 +1633,208 @@ function LawyerDashboardDemoSlide({ active }: { active: boolean }) {
         </div>
 
         <DemoPanel className="p-5">
-          <div className="grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
-            <div className="rounded-[26px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-5">
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Open Case Workspace</p>
-                  <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">Bedi Infra v. State of Maharashtra</p>
-                  <p className="mt-2 text-sm text-[#D8C7B2]">Next hearing: 21 May 2026 • Commercial Bench • Reply filing due</p>
+          {authStep === 0 ? (
+            <div className="grid min-h-[560px] gap-5 rounded-[28px] bg-[#f8fafc] p-6 text-slate-900 xl:grid-cols-[0.88fr_1.12fr]">
+              <div className="flex flex-col justify-center rounded-[20px] border border-slate-200 bg-white p-8 shadow-[0_22px_60px_rgba(15,23,42,0.08)]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-amber-300">
+                  <Scale className="h-6 w-6" />
                 </div>
-                <ShieldCheck className="h-5 w-5 text-[#D6A15C]" />
+                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.28em] text-amber-700">Bedi LegalOS</p>
+                <p className="mt-3 text-3xl font-semibold">Secure advocate access</p>
+                <p className="mt-3 text-sm leading-7 text-slate-500">Sign in to view assigned matters, hearings, documents, evidence, notes, and client updates.</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["Role verified", "2FA ready", "Matter-level access"].map((item) => (
+                    <span key={item} className="rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-600">{item}</span>
+                  ))}
+                </div>
               </div>
-
-              <div className="mt-5 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-                <div className="rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.56)] p-4">
-                  <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#D6A15C]">Case Summary</p>
-                  <div className="mt-4 grid gap-3">
+              <div className="flex items-center justify-center rounded-[20px] border border-slate-200 bg-white p-6 shadow-[0_22px_60px_rgba(15,23,42,0.08)]">
+                <div className="w-full max-w-md rounded-[18px] border border-slate-200 bg-white p-6">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 text-white">
+                    <LockKeyhole className="h-6 w-6" />
+                  </div>
+                  <p className="mt-5 text-xl font-semibold text-slate-900">Welcome back</p>
+                  <p className="mt-1 text-sm text-slate-500">Use your firm account to continue.</p>
+                  <div className="mt-6 grid gap-3">
                     {[
-                      ["Lead advocate", "Adv. Meera Shah"],
-                      ["Client", "Bedi Infra Projects"],
-                      ["Stage", "Reply ready for review"],
-                      ["Action", "Finalize annexures before 6 PM"],
-                    ].map(([label, value]) => (
-                      <div key={label} className="grid gap-2 rounded-[18px] border border-[rgba(185,130,69,0.12)] bg-[rgba(17,10,6,0.7)] px-4 py-3 md:grid-cols-[130px_1fr]">
-                        <p className="text-[0.66rem] uppercase tracking-[0.16em] text-[#D6A15C]">{label}</p>
-                        <p className="text-sm text-[#F3E7D3]">{value}</p>
-                      </div>
+                      ["Email", "adv.meera@bediassociates.in"],
+                      ["Password", "••••••••••••"],
+                    ].map(([label, value], fieldIndex) => (
+                      <motion.div
+                        key={label}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.28, delay: fieldIndex * 0.12 }}
+                        className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+                      >
+                        <p className="text-xs font-medium text-slate-500">{label}</p>
+                        <p className="mt-1 text-sm font-medium text-slate-900">{value}</p>
+                      </motion.div>
                     ))}
                   </div>
+                  <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm text-blue-700">Two-factor authentication enabled</div>
+                  <motion.div
+                    initial={{ width: "20%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    className="mt-5 h-11 rounded-xl bg-slate-900 text-center text-sm font-semibold leading-[2.75rem] text-white"
+                  >
+                    Sign in
+                  </motion.div>
                 </div>
+              </div>
+            </div>
+          ) : authStep === 1 ? (
+            <div className="flex min-h-[560px] flex-col items-center justify-center gap-6 rounded-[28px] border border-slate-200 bg-[#f8fafc] text-slate-900">
+              <motion.div
+                animate={active ? { rotate: 360 } : {}}
+                transition={{ duration: 1.25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="flex h-20 w-20 items-center justify-center rounded-full border border-slate-200 border-t-slate-900 bg-white shadow-sm"
+              >
+                <Scale className="h-8 w-8 text-slate-900" />
+              </motion.div>
+              <div className="text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-700">Verifying access</p>
+                <p className="mt-3 text-2xl font-semibold">Loading case workspace</p>
+                <div className="mt-5 h-2 w-72 overflow-hidden rounded-full bg-slate-200">
+                  <motion.div animate={{ width: ["20%", "86%", "100%"] }} transition={{ duration: 1.5, ease: "easeInOut" }} className="h-full rounded-full bg-slate-900" />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-white text-slate-900 shadow-[0_28px_80px_rgba(15,23,42,0.12)]">
+              <div className="grid min-h-[590px] lg:grid-cols-[190px_1fr]">
+                <aside className="bg-slate-950 p-4 text-white">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-400 text-slate-950"><Scale className="h-5 w-5" /></div>
+                    <div>
+                      <p className="text-sm font-semibold">Bedi LegalOS</p>
+                      <p className="text-xs text-slate-400">Advocate</p>
+                    </div>
+                  </div>
+                  <nav className="mt-7 grid gap-1.5 text-sm">
+                    {["Dashboard", "Matters", "Hearings", "Clients", "Documents", "Evidence", "Notes", "Settings"].map((item, navIndex) => (
+                      <div key={item} className={cn("rounded-lg px-3 py-2", navIndex === 0 ? "bg-white text-slate-950" : "text-slate-300")}>{item}</div>
+                    ))}
+                  </nav>
+                </aside>
+                <main className="bg-[#f6f8fb] p-5">
+                  <div className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <div>
+                      <p className="text-lg font-semibold">Advocate Dashboard</p>
+                      <p className="text-xs text-slate-500">Tuesday, 21 May 2026</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="hidden w-64 items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500 xl:flex">
+                        <Search className="h-4 w-4" /> Search matter, client, document...
+                      </div>
+                      <BellRing className="h-5 w-5 text-slate-500" />
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">MS</div>
+                    </div>
+                  </div>
 
-                <div className="rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.56)] p-4">
-                  <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#D6A15C]">Live Case Images</p>
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <motion.div initial={{ opacity: 0, y: 12 }} animate={dashboardStep >= 0 ? { opacity: 1, y: 0 } : {}} className="mt-4 grid gap-3 sm:grid-cols-4">
                     {[
-                      [slide17Hero, "Court exterior", "sm:col-span-2", "aspect-[16/10] object-center"],
-                      [slide21Hero, "Evidence binder", "", "aspect-[4/3] object-[center_28%]"],
-                      [slide8, "Client conference", "", "aspect-[4/3] object-center"],
-                      [slide1, "Filed papers", "", "aspect-[4/3] object-[center_22%]"],
-                    ].map(([src, label, cardClassName, imageClassName]) => (
-                      <div
-                        key={label}
-                        className={cn(
-                          "group overflow-hidden rounded-[18px] border border-[rgba(185,130,69,0.12)] bg-[rgba(17,10,6,0.72)]",
-                          cardClassName,
-                        )}
-                      >
-                        <div className="relative overflow-hidden">
-                          <img
-                            src={src}
-                            alt={label}
-                            className={cn(
-                              "w-full object-cover transition duration-500 group-hover:scale-[1.03]",
-                              imageClassName,
-                            )}
-                            loading="lazy"
-                          />
-                          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(17,10,6,0.02)_0%,rgba(17,10,6,0.1)_48%,rgba(17,10,6,0.82)_100%)]" />
-                          <p className="absolute bottom-0 left-0 right-0 px-3 py-2 text-sm text-[#F3E7D3]">
-                            {label}
-                          </p>
+                      ["Active matters", "42", "8 urgent"],
+                      ["Hearings this week", "17", "3 today"],
+                      ["Pending filings", "09", "2 due"],
+                      ["Client updates due", "14", "5 high priority"],
+                    ].map(([label, value, note]) => (
+                      <div key={label} className="rounded-2xl border border-slate-200 bg-white p-4">
+                        <p className="text-xs font-medium text-slate-500">{label}</p>
+                        <p className="mt-2 text-2xl font-semibold">{value}</p>
+                        <p className="mt-1 text-xs text-amber-700">{note}</p>
+                      </div>
+                    ))}
+                  </motion.div>
+
+                  <div className="mt-4 grid gap-4 xl:grid-cols-[1.05fr_0.95fr]">
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={dashboardStep >= 1 ? { opacity: 1, y: 0 } : { opacity: 0.35, y: 8 }} className="rounded-2xl border border-slate-200 bg-white p-4">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-semibold">Today's hearings</p>
+                        <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">Live board</span>
+                      </div>
+                      <div className="mt-3 overflow-hidden rounded-xl border border-slate-200">
+                        <div className="grid grid-cols-[1.4fr_1fr_0.55fr_0.7fr] bg-slate-50 px-3 py-2 text-xs font-medium text-slate-500">
+                          <span>Case</span><span>Court / Bench</span><span>Time</span><span>Status</span>
+                        </div>
+                        {[
+                          ["Bedi Infra v. State", "Commercial Bench II", "11:30", "Ready"],
+                          ["Rao v. Union", "Court 4", "14:15", "Draft due"],
+                          ["Mohan Foods Arb.", "Arbitration", "16:00", "Client call"],
+                        ].map((row) => (
+                          <div key={row[0]} className="grid grid-cols-[1.4fr_1fr_0.55fr_0.7fr] border-t border-slate-200 px-3 py-2 text-xs">
+                            <span className="font-medium">{row[0]}</span><span className="text-slate-500">{row[1]}</span><span>{row[2]}</span><span className="text-emerald-700">{row[3]}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={dashboardStep >= 2 ? { opacity: 1, y: 0 } : { opacity: 0.35, y: 8 }} className="rounded-2xl border border-slate-200 bg-white p-4">
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-semibold">Active matter</p>
+                          <p className="mt-2 text-lg font-semibold">Bedi Infra v. State of Maharashtra</p>
+                          <p className="mt-1 text-xs text-slate-500">Next hearing: 21 May 2026 • Commercial Bench</p>
+                        </div>
+                        <span className="rounded-full bg-red-50 px-3 py-1 text-xs font-medium text-red-700">High</span>
+                      </div>
+                      <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                        {[
+                          ["Stage", "Reply review"],
+                          ["Advocate", "Adv. Meera Shah"],
+                          ["Filing", "Due 6 PM"],
+                        ].map(([label, value]) => (
+                          <div key={label} className="rounded-xl bg-slate-50 p-3">
+                            <p className="text-xs text-slate-500">{label}</p>
+                            <p className="mt-1 text-sm font-medium">{value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <motion.div initial={{ opacity: 0, y: 12 }} animate={dashboardStep >= 3 ? { opacity: 1, y: 0 } : { opacity: 0.35, y: 8 }} className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                    <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+                      {["Overview", "Updates", "Evidence", "Forensic Images", "Notes", "Checklist"].map((tab, tabIndex) => (
+                        <span key={tab} className={cn("rounded-lg px-3 py-1.5 text-xs font-medium", tabIndex === 3 ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600")}>{tab}</span>
+                      ))}
+                    </div>
+                    <div className="mt-4 grid gap-4 xl:grid-cols-[0.9fr_1.1fr]">
+                      <div>
+                        <p className="text-sm font-semibold">Forensic image gallery</p>
+                        <div className="mt-3 grid grid-cols-3 gap-2">
+                          {[
+                            [slide21Hero, "Binder"],
+                            [slide8, "Conference"],
+                            [slide1, "Filed papers"],
+                          ].map(([src, label]) => (
+                            <div key={label} className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+                              <img src={src} alt={label} className="h-20 w-full object-cover" loading="lazy" />
+                              <p className="px-2 py-1.5 text-[0.68rem] text-slate-600">{label}</p>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
+                      <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                        <div className="flex items-center justify-between">
+                          <p className="text-sm font-semibold">Add internal note</p>
+                          <span className="text-xs text-slate-500">Adv. Meera • 4:20 PM</span>
+                        </div>
+                        <div className="mt-3 rounded-lg border border-slate-200 bg-white p-3 text-sm text-slate-600">Client confirmed registry copy. Add annexure pagination before senior review.</div>
+                        <button type="button" className="mt-3 rounded-lg bg-slate-900 px-4 py-2 text-xs font-semibold text-white">Save note</button>
+                        {dashboardStep >= 4 ? (
+                          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-3 rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs font-medium text-emerald-700">
+                            Note saved to case file
+                          </motion.div>
+                        ) : null}
+                      </div>
+                    </div>
+                  </motion.div>
+                </main>
               </div>
             </div>
-
-            <div className="grid gap-4">
-              <div className="rounded-[24px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-4">
-                <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Assigned Matters</p>
-                <div className="mt-4 grid gap-3">
-                  {[
-                    ["Bedi Infra v. State", "Reply filing due"],
-                    ["Ananya Rao v. Union", "Compilation review"],
-                    ["Mohan Foods Arbitration", "Hearing prep"],
-                  ].map(([title, status]) => (
-                    <div key={title} className="flex items-center justify-between rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-4">
-                      <p className="text-sm text-[#F3E7D3]">{title}</p>
-                      <p className="text-[0.72rem] uppercase tracking-[0.16em] text-[#D6A15C]">{status}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-[24px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-4">
-                <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Workspace Tools</p>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {["Timeline", "Documents", "Notes", "Client instructions", "Secure uploads", "Hearing checklist"].map((item) => (
-                    <div key={item} className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-3 text-sm text-[#F3E7D3]">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </DemoPanel>
       </div>
     </StageBackdrop>
@@ -1667,7 +1966,6 @@ function SharedNotesDemoSlide({ active }: { active: boolean }) {
 function AdminDashboardSlide({ active }: { active: boolean }) {
   const readyStep = useSequencedStep(active, 2, 900, false);
   const dashboardReady = readyStep >= 1;
-  const { index, goPrev, goNext, goTo } = useAutoCarousel(active && dashboardReady, 4, 5000);
 
   return (
     <StageBackdrop active={active} image={slide10}>
@@ -1682,204 +1980,133 @@ function AdminDashboardSlide({ active }: { active: boolean }) {
         </div>
 
         <DemoPanel className="p-5">
-          <div className="overflow-hidden rounded-[28px] border border-[rgba(185,130,69,0.16)] bg-[rgba(9,8,10,0.84)]">
+          <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-white text-slate-900 shadow-[0_28px_80px_rgba(15,23,42,0.12)]">
             {!dashboardReady ? (
-              <div className="flex min-h-[520px] flex-col items-center justify-center gap-6">
+              <div className="flex min-h-[560px] flex-col items-center justify-center gap-6 bg-[#f8fafc]">
                 <motion.div
                   animate={active ? { rotate: 360 } : {}}
                   transition={{ duration: 1.1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border border-[rgba(214,161,92,0.3)] border-t-[#F5D58F] bg-[rgba(255,255,255,0.04)]"
+                  className="flex h-20 w-20 items-center justify-center rounded-full border border-slate-200 border-t-slate-900 bg-white"
                 >
-                  <LayoutDashboard className="h-8 w-8 text-[#F5D58F]" />
+                  <LayoutDashboard className="h-8 w-8 text-slate-900" />
                 </motion.div>
                 <div className="text-center">
-                  <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Loading Admin Control</p>
-                  <p className="mt-3 text-2xl font-semibold text-[#F3E7D3]">Bringing the control room online...</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-700">Loading Admin Control</p>
+                  <p className="mt-3 text-2xl font-semibold">Bringing the operations dashboard online</p>
                 </div>
               </div>
             ) : (
-              <div className="grid min-h-[520px] lg:grid-cols-[92px_1fr]">
-                <div className="border-r border-[rgba(185,130,69,0.14)] bg-[rgba(18,14,12,0.92)] px-4 py-5">
-                  <div className="flex flex-col items-center gap-4">
-                    {[LayoutDashboard, Users2, Scale, BellRing].map((Icon, idx) => (
-                      <div
-                        key={idx}
-                        className={cn(
-                          "flex h-12 w-12 items-center justify-center rounded-2xl border text-[#F3E7D3]",
-                          idx === index
-                            ? "border-[rgba(214,161,92,0.4)] bg-[rgba(214,161,92,0.18)] text-[#FFE6B8]"
-                            : "border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)]",
-                        )}
-                      >
-                        <Icon className="h-5 w-5" />
+              <div className="grid min-h-[590px] lg:grid-cols-[190px_1fr]">
+                <aside className="bg-slate-950 p-4 text-white">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-400 text-slate-950"><ShieldCheck className="h-5 w-5" /></div>
+                    <div>
+                      <p className="text-sm font-semibold">Admin Console</p>
+                      <p className="text-xs text-slate-400">Operations</p>
+                    </div>
+                  </div>
+                  <nav className="mt-7 grid gap-1.5 text-sm">
+                    {["Overview", "Users", "Roles", "Case Services", "Appointments", "Notices", "Attendance", "Reports", "Settings"].map((item, navIndex) => (
+                      <div key={item} className={cn("rounded-lg px-3 py-2", navIndex === 0 ? "bg-white text-slate-950" : "text-slate-300")}>{item}</div>
+                    ))}
+                  </nav>
+                </aside>
+                <main className="bg-[#f6f8fb] p-5">
+                  <div className="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                    <div>
+                      <p className="text-lg font-semibold">Platform Overview</p>
+                      <p className="text-xs text-slate-500">Last 7 days • Bedi & Associates</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="hidden w-60 items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-500 xl:flex">
+                        <Search className="h-4 w-4" /> Search users, roles, notices...
+                      </div>
+                      <span className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600">May 2026</span>
+                      <BellRing className="h-5 w-5 text-slate-500" />
+                    </div>
+                  </div>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-4">
+                    {[
+                      ["Active users", "124", "92 online today"],
+                      ["Appointments", "18", "5 pending"],
+                      ["Notices", "07", "2 drafts"],
+                      ["Approvals", "11", "needs review"],
+                    ].map(([label, value, note]) => (
+                      <div key={label} className="rounded-2xl border border-slate-200 bg-white p-4">
+                        <p className="text-xs font-medium text-slate-500">{label}</p>
+                        <p className="mt-2 text-2xl font-semibold">{value}</p>
+                        <p className="mt-1 text-xs text-slate-500">{note}</p>
                       </div>
                     ))}
                   </div>
-                </div>
 
-                <div className="p-5">
-                  <AnimatePresence mode="wait">
-                    {index === 0 ? (
-                      <motion.div
-                        key="admin-analytics"
-                        initial={{ opacity: 0, x: 22 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -22 }}
-                        transition={{ duration: 0.25 }}
-                        className="grid gap-4"
-                      >
-                        <div className="flex items-center justify-between gap-3">
-                          <div>
-                            <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">Analytics</p>
-                            <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">Live platform overview</p>
-                          </div>
-                          <TopPill className="px-3 py-1.5 text-[0.62rem]">Dashboard</TopPill>
+                  <div className="mt-4 grid gap-4 xl:grid-cols-[1.12fr_0.88fr]">
+                    <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-semibold">User management</p>
+                        <button type="button" className="rounded-lg bg-slate-900 px-3 py-2 text-xs font-semibold text-white">Add user</button>
+                      </div>
+                      <div className="mt-3 overflow-hidden rounded-xl border border-slate-200">
+                        <div className="grid grid-cols-[1.35fr_0.75fr_0.7fr_0.85fr_0.5fr] gap-2 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-500">
+                          {["User", "Role", "Status", "Last active", "Action"].map((item) => <span key={item}>{item}</span>)}
                         </div>
-                        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                          {[
-                            ["Active users", "124"],
-                            ["Appointments today", "18"],
-                            ["Notices published", "07"],
-                            ["Justice Clock sync", "Healthy"],
-                          ].map(([label, value]) => (
-                            <div key={label} className="rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)] p-4">
-                              <p className="text-[0.66rem] uppercase tracking-[0.18em] text-[#D6A15C]">{label}</p>
-                              <p className="mt-3 text-2xl font-semibold text-[#F3E7D3]">{value}</p>
+                        {[
+                          ["Meera Shah", "Litigation", "Advocate", "Active", "2 min ago", "Edit"],
+                          ["Nikhil Jain", "Registry", "Clerk", "Active", "18 min ago", "Edit"],
+                          ["Rohan Bedi", "Leadership", "Admin", "Active", "Now", "Edit"],
+                          ["Viewer Desk", "Reception", "Viewer", "Limited", "1 hr ago", "Edit"],
+                        ].map((row) => (
+                          <div key={row[0]} className="grid grid-cols-[1.35fr_0.75fr_0.7fr_0.85fr_0.5fr] gap-2 border-t border-slate-200 px-3 py-2 text-xs">
+                            <span className="text-slate-700"><b className="font-medium">{row[0]}</b><br /><span className="text-slate-400">{row[1]}</span></span>
+                            <span className="text-slate-700">{row[2]}</span>
+                            <span className={row[3] === "Limited" ? "text-amber-700" : "text-emerald-700"}>{row[3]}</span>
+                            <span className="text-slate-700">{row[4]}</span>
+                            <span className="font-medium text-blue-700">{row[5]}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4">
+                      <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                        <p className="text-sm font-semibold">Role-based access</p>
+                        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                          {["Advocate", "Clerk", "Admin", "Viewer"].map((role, roleIndex) => (
+                            <div key={role} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-3">
+                              <p className="text-sm font-medium">{role}</p>
+                              <p className="mt-1 text-xs text-slate-500">{["Cases + notes", "Registry + appointments", "Full control", "Read only"][roleIndex]}</p>
                             </div>
                           ))}
                         </div>
-                        <div className="grid gap-4 xl:grid-cols-[1.02fr_0.98fr]">
-                          <div className="rounded-[24px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)] p-5">
-                            <p className="text-[0.72rem] uppercase tracking-[0.26em] text-[#D6A15C]">Usage curve</p>
-                            <div className="mt-5 flex h-44 items-end gap-3">
-                              {[38, 54, 43, 68, 72, 61, 88].map((value, idx) => (
-                                <div key={idx} className="flex-1 rounded-t-[18px] bg-[linear-gradient(180deg,#D6A15C_0%,#744A2A_100%)]" style={{ height: `${value}%` }} />
-                              ))}
-                            </div>
-                          </div>
-                          <div className="rounded-[24px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)] p-5">
-                            <p className="text-[0.72rem] uppercase tracking-[0.26em] text-[#D6A15C]">Recent admin actions</p>
-                            <div className="mt-4 grid gap-3">
-                              {[
-                                "User access updated for registry desk",
-                                "Notice published for holiday circular",
-                                "Justice Clock pushed to public screen",
-                              ].map((item) => (
-                                <div key={item} className="rounded-[18px] bg-[rgba(255,255,255,0.05)] px-4 py-3 text-sm text-[#F3E7D3]">
-                                  {item}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    ) : null}
-
-                    {index === 1 ? (
-                      <motion.div
-                        key="admin-team"
-                        initial={{ opacity: 0, x: 22 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -22 }}
-                        transition={{ duration: 0.25 }}
-                        className="grid gap-4"
-                      >
-                        <div>
-                          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">Team Management</p>
-                          <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">Names, phones, attendance, roles, and access</p>
-                        </div>
-                        <div className="overflow-hidden rounded-[24px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)]">
-                          <div className="grid grid-cols-[1.2fr_1fr_0.8fr_0.9fr_0.9fr_1fr] gap-2 border-b border-[rgba(185,130,69,0.14)] px-4 py-3">
-                            {["Name", "Phone", "Attendance", "Performance", "Designation", "Access"].map((item) => (
-                              <p key={item} className="text-[0.66rem] uppercase tracking-[0.16em] text-[#D6A15C]">{item}</p>
-                            ))}
-                          </div>
-                          <div className="grid gap-2 p-3">
-                            {[
-                              ["Rohan Bedi", "+91 98XXXXXX21", "92%", "A", "Admin", "Full"],
-                              ["Meera Shah", "+91 97XXXXXX13", "95%", "A+", "Lawyer", "Cases only"],
-                              ["Nikhil Jain", "+91 99XXXXXX44", "88%", "B+", "Support", "Limited"],
-                              ["Registry Desk", "+91 96XXXXXX80", "90%", "A", "Operations", "Appointments"],
-                            ].map((row) => (
-                              <div key={row[0]} className="grid grid-cols-[1.2fr_1fr_0.8fr_0.9fr_0.9fr_1fr] gap-2 rounded-[18px] bg-[rgba(255,255,255,0.05)] px-4 py-3 text-sm text-[#F3E7D3]">
-                                {row.map((cell) => (
-                                  <span key={cell}>{cell}</span>
-                                ))}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ) : null}
-
-                    {index === 2 ? (
-                      <motion.div
-                        key="admin-clock"
-                        initial={{ opacity: 0, x: 22 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -22 }}
-                        transition={{ duration: 0.25 }}
-                        className="grid gap-4 xl:grid-cols-[0.96fr_1.04fr]"
-                      >
-                        <div className="rounded-[24px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)] p-5">
-                          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">Justice Clock Control</p>
-                          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                            {[
-                              ["Cases Filed", "412"],
-                              ["Cases Disposed", "376"],
-                              ["CCR", "91%"],
-                              ["Listed Today", "267"],
-                            ].map(([label, value]) => (
-                              <div key={label} className="rounded-[18px] bg-[rgba(255,255,255,0.05)] px-4 py-4">
-                                <p className="text-[0.66rem] uppercase tracking-[0.16em] text-[#D6A15C]">{label}</p>
-                                <p className="mt-2 text-sm text-[#F3E7D3]">{value}</p>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        <div className="rounded-[24px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.04)] p-5">
-                          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">Publish Update</p>
-                          <div className="mt-4 rounded-[20px] bg-[rgba(255,255,255,0.05)] p-4 text-sm leading-7 text-[#F3E7D3]">
-                            Review the revised institution and disposal numbers, then push the updated board to the public lobby screen and website.
-                          </div>
-                          <button type="button" className="mt-4 rounded-[18px] bg-[#D6A15C] px-4 py-3 text-sm font-medium text-[#2E1809]">
-                            Update Justice Clock
-                          </button>
-                        </div>
-                      </motion.div>
-                    ) : null}
-
-                    {index === 3 ? (
-                      <motion.div
-                        key="admin-notices"
-                        initial={{ opacity: 0, x: 22 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -22 }}
-                        transition={{ duration: 0.25 }}
-                        className="grid gap-4"
-                      >
-                        <div>
-                          <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[#D6A15C]">Notice Management</p>
-                          <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">Create, manage, and publish realistic legal notices</p>
-                        </div>
-                        <div className="grid gap-4 xl:grid-cols-3">
-                          {[
-                            ["Public Holiday Notice", "Court and filing counters will remain closed on 17 May 2026 for Buddha Purnima."],
-                            ["Cause List Update", "Court No. 4 matters listed after 2 PM due to revised board timing."],
-                            ["Registry Advisory", "Certified copy requests filed after 4 PM will be processed on the next working day."],
-                          ].map(([title, body]) => (
-                            <div key={title} className="rounded-[24px] border border-[rgba(185,130,69,0.14)] bg-[rgba(255,255,255,0.05)] p-5">
-                              <p className="text-lg font-semibold text-[#F3E7D3]">{title}</p>
-                              <p className="mt-3 text-sm leading-7 text-[#D8C7B2]">{body}</p>
-                            </div>
+                      </div>
+                      <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                        <p className="text-sm font-semibold">Activity feed</p>
+                        <div className="mt-3 grid gap-2">
+                          {["User added: Registry Desk", "Notice published: Holiday circular", "Permission updated: Advocate role", "Appointment approved: Aman Shaikh"].map((item) => (
+                            <div key={item} className="rounded-xl bg-slate-50 px-3 py-2 text-xs text-slate-600">{item}</div>
                           ))}
                         </div>
-                      </motion.div>
-                    ) : null}
-                  </AnimatePresence>
+                      </div>
+                    </div>
+                  </div>
 
-                  <StoryControls activeIndex={index} total={4} onPrev={goPrev} onNext={goNext} onSelect={goTo} />
-                </div>
+                  <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm font-semibold">Weekly usage analytics</p>
+                      <div className="flex gap-2 text-xs">
+                        {["Usage", "Appointments", "Case searches"].map((chip, chipIndex) => (
+                          <span key={chip} className={cn("rounded-full px-3 py-1", chipIndex === 0 ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-600")}>{chip}</span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-4 flex h-24 items-end gap-3">
+                      {[45, 58, 50, 72, 68, 84, 76].map((value, valueIndex) => (
+                        <div key={valueIndex} className="flex-1 rounded-t-lg bg-[linear-gradient(180deg,#2563eb,#93c5fd)]" style={{ height: `${value}%` }} />
+                      ))}
+                    </div>
+                  </div>
+                </main>
               </div>
             )}
           </div>
@@ -1889,28 +2116,133 @@ function AdminDashboardSlide({ active }: { active: boolean }) {
   );
 }
 
-function AttendanceSoftwareDemoSlide({ active }: { active: boolean }) {
-  const step = useSequencedStep(active, 5, 920, false);
-  const timerSnapshots = ["00:12:08", "03:08:42", "03:42:15", "06:24:10", "08:00:00"] as const;
-  const activeTime = timerSnapshots[Math.min(step, timerSnapshots.length - 1)];
-
-  const employeeSteps = [
-    "Clock In",
-    "Break",
-    "Resume",
-    "Clock Out",
+function AttendanceIntroSlide({ active }: { active: boolean }) {
+  const packetStep = useSequencedStep(active, 5, 760, true);
+  const backendNodes = [
+    ["Check-ins", "Employee clock events"],
+    ["Break Logs", "Start and end records"],
+    ["Approvals", "Manager review queue"],
+    ["Analytics", "Hours and utilization"],
   ];
-  const ledgerRows = [
-    ["09:02 AM", "Clock In", "Synced"],
-    ["01:08 PM", "Break Started", step >= 1 ? "Logged" : "Waiting"],
-    ["01:42 PM", "Work Resumed", step >= 2 ? "Logged" : "Waiting"],
-    ["06:14 PM", "Clock Out", step >= 3 ? "Confirmed" : "Pending"],
-  ] as const;
-  const syncProgress = clamp((step + 1) / employeeSteps.length, 0.25, 1);
 
   return (
     <StageBackdrop active={active} image={slide21Hero}>
-      <div className="relative grid h-full gap-8 px-6 py-8 sm:px-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:px-16 lg:py-12">
+      <div className="relative grid h-full gap-8 px-6 py-8 sm:px-10 lg:grid-cols-[0.66fr_1.34fr] lg:items-center lg:px-16 lg:py-12">
+        <div className="flex flex-col justify-center">
+          <SlideHeading
+            kicker="Transition"
+            title="Introducing Attendance & Time Accountability"
+            subtitle="A secure backend flow where check-ins become useful management insight."
+            compact
+          />
+        </div>
+
+        <DemoPanel className="p-5">
+          <div className="relative min-h-[560px] overflow-hidden rounded-[28px] border border-[rgba(185,130,69,0.16)] bg-[rgba(5,8,14,0.9)] p-5">
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)] bg-[length:54px_54px]" />
+            <div className="relative grid h-full gap-5 xl:grid-cols-[1fr_0.9fr]">
+              <div className="rounded-[24px] border border-cyan-300/18 bg-[#061126]/82 p-5">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[0.72rem] uppercase tracking-[0.34em] text-cyan-300">Backend Sync</p>
+                    <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">Attendance events moving through the system</p>
+                  </div>
+                  <Database className="h-6 w-6 text-cyan-300" />
+                </div>
+                <div className="relative mt-8 grid gap-4">
+                  {backendNodes.map(([title, note], index) => (
+                    <motion.div
+                      key={title}
+                      initial={{ opacity: 0, x: -16 }}
+                      animate={active ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.28, delay: index * 0.08 }}
+                      className="relative rounded-[18px] border border-cyan-300/16 bg-white/5 px-4 py-4"
+                    >
+                      <div className="flex items-center justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-semibold text-white">{title}</p>
+                          <p className="mt-1 text-sm text-white/60">{note}</p>
+                        </div>
+                        <span className={cn("h-3 w-3 rounded-full", packetStep >= index ? "bg-cyan-300 shadow-[0_0_24px_rgba(34,211,238,0.8)]" : "bg-white/20")} />
+                      </div>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    animate={active ? { x: ["0%", "92%", "0%"] } : {}}
+                    transition={{ duration: 4.4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                    className="absolute left-0 top-[46%] h-2 w-16 rounded-full bg-cyan-300 shadow-[0_0_28px_rgba(34,211,238,0.8)]"
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                <div className="rounded-[24px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.5)] p-5">
+                  <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Generated Admin Insight</p>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {[
+                      ["Active Today", "38"],
+                      ["Pending Approval", "06"],
+                      ["Late Entries", "03"],
+                      ["Reports Ready", "Daily"],
+                    ].map(([label, value]) => (
+                      <div key={label} className="rounded-[18px] border border-white/10 bg-white/5 p-4">
+                        <p className="text-[0.66rem] uppercase tracking-[0.18em] text-[#D6A15C]">{label}</p>
+                        <p className="mt-2 text-2xl font-semibold text-[#F3E7D3]">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-[24px] border border-cyan-300/18 bg-cyan-300/8 p-5">
+                  <p className="text-[0.72rem] uppercase tracking-[0.34em] text-cyan-300">Secure Database</p>
+                  <div className="mt-5 flex h-40 items-end gap-3">
+                    {[42, 68, 54, 82, 74, 90, 63].map((value, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ height: "18%" }}
+                        animate={active ? { height: `${value}%` } : { height: "18%" }}
+                        transition={{ duration: 0.5, delay: index * 0.06 }}
+                        className="flex-1 rounded-t-[16px] bg-[linear-gradient(180deg,#22d3ee,#164e63)]"
+                      />
+                    ))}
+                  </div>
+                  <div className="mt-4 grid gap-2 sm:grid-cols-3">
+                    {["Sync logs", "Policy rules", "Time analytics"].map((item) => (
+                      <div key={item} className="rounded-[14px] bg-white/5 px-3 py-2 text-center text-xs text-white/70">{item}</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DemoPanel>
+      </div>
+    </StageBackdrop>
+  );
+}
+
+function AttendanceSoftwareDemoSlide({ active }: { active: boolean }) {
+  const step = useSequencedStep(active, 6, 820, false);
+  const timerSnapshots = ["00:12:08", "03:08:42", "03:42:15", "06:24:10", "08:00:00", "08:20:00"] as const;
+  const activeTime = timerSnapshots[Math.min(step, timerSnapshots.length - 1)];
+
+  const employeeSteps = [
+    "Punch In",
+    "Hours Count",
+    "Start Break",
+    "End Break",
+    "Punch Out",
+    "Summary",
+  ];
+  const ledgerRows = [
+    ["09:02 AM", "Punch In", "Synced"],
+    ["01:08 PM", "Break Started", step >= 2 ? "Logged" : "Waiting"],
+    ["01:42 PM", "Work Resumed", step >= 3 ? "Logged" : "Waiting"],
+    ["06:14 PM", "Punch Out", step >= 4 ? "Confirmed" : "Pending"],
+  ] as const;
+
+  return (
+    <StageBackdrop active={active} image={slide21Hero}>
+      <div className="relative grid h-full gap-8 px-6 py-8 sm:px-10 lg:grid-cols-[0.52fr_1.48fr] lg:items-center lg:px-16 lg:py-12">
         <div className="flex flex-col justify-center">
           <SlideHeading
             kicker="Attendance Software"
@@ -1922,153 +2254,111 @@ function AttendanceSoftwareDemoSlide({ active }: { active: boolean }) {
         </div>
 
         <DemoPanel className="p-5">
-          <div className="grid gap-4 xl:grid-cols-[0.98fr_1.02fr]">
-            <div className="rounded-[24px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-4">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Employee Flow</p>
-                  <p className="mt-2 text-sm text-[#D8C7B2]">Clock in, mark break, resume, and close the day.</p>
+          <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-white text-slate-900 shadow-[0_28px_80px_rgba(15,23,42,0.12)]">
+            <div className="grid min-h-[590px] bg-[#f6f8fb] xl:grid-cols-[1.06fr_0.94fr]">
+              <div className="p-5">
+                <div className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                  <div>
+                    <p className="text-lg font-semibold">Attendance Control</p>
+                    <p className="text-xs text-slate-500">Employee self-service + admin visibility</p>
+                  </div>
+                  <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-700">Synced</span>
                 </div>
-                <Clock3 className="h-5 w-5 text-[#D6A15C]" />
-              </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                {employeeSteps.map((item, index) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={active ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.3, delay: 0.12 + index * 0.06 }}
-                    className={cn(
-                      "rounded-[18px] border px-4 py-4 text-sm",
-                      index <= step
-                        ? "border-[rgba(74,222,128,0.24)] bg-[rgba(74,222,128,0.12)] text-[#F3E7D3]"
-                        : "border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.52)] text-[#D8C7B2]",
-                    )}
-                  >
-                    {item}
-                  </motion.div>
-                ))}
-              </div>
 
-              <div className="mt-5 rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.56)] p-4">
-                <p className="text-[0.68rem] uppercase tracking-[0.22em] text-[#D6A15C]">Active Time</p>
-                <p className="mt-3 text-4xl font-semibold text-[#F3E7D3] tabular-nums">{activeTime}</p>
-                <div className="mt-3 h-2 overflow-hidden rounded-full bg-[rgba(185,130,69,0.12)]">
-                  <motion.div
-                    initial={{ width: "10%" }}
-                    animate={active ? { width: `${Math.max(12, ((step + 1) / timerSnapshots.length) * 100)}%` } : { width: "10%" }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
-                    className="h-full rounded-full bg-[linear-gradient(90deg,#9BE7B4_0%,#D6A15C_100%)]"
-                  />
+                <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">RJ</div>
+                      <div>
+                        <p className="text-lg font-semibold">Rahul Joshi</p>
+                        <p className="text-sm text-slate-500">Junior Associate • Office mode</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-slate-500">Active time</p>
+                      <p className="text-3xl font-semibold tabular-nums">{activeTime}</p>
+                    </div>
+                  </div>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-4">
+                    {["Punch In", "Start Break", "End Break", "Punch Out"].map((action, actionIndex) => (
+                      <button
+                        key={action}
+                        type="button"
+                        className={cn(
+                          "h-11 rounded-xl border text-sm font-semibold",
+                          actionIndex <= step - 1 ? "border-slate-900 bg-slate-900 text-white" : "border-slate-200 bg-white text-slate-600",
+                        )}
+                      >
+                        {action}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mt-5 h-2 overflow-hidden rounded-full bg-slate-200">
+                    <motion.div
+                      initial={{ width: "8%" }}
+                      animate={active ? { width: `${Math.max(12, ((step + 1) / employeeSteps.length) * 100)}%` } : { width: "8%" }}
+                      transition={{ duration: 0.45, ease: "easeOut" }}
+                      className="h-full rounded-full bg-[linear-gradient(90deg,#2563eb,#22c55e)]"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold">Daily timeline</p>
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">Employee-visible</span>
+                  </div>
+                  <div className="mt-3 grid gap-2">
+                    {ledgerRows.map(([time, label, status], rowIndex) => (
+                      <div key={label} className="grid grid-cols-[86px_1fr_auto] items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm">
+                        <p className="text-xs font-semibold text-slate-500">{time}</p>
+                        <p className="font-medium">{label}</p>
+                        <span className={cn("rounded-full px-2.5 py-1 text-xs font-medium", rowIndex <= step ? "bg-emerald-50 text-emerald-700" : "bg-slate-100 text-slate-500")}>{status}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-4 rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.56)] p-3">
-                <img
-                  src={portraitImage}
-                  alt="Attendance workflow preview"
-                  className="h-44 w-full rounded-[18px] object-cover object-top"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <div className="rounded-[24px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-4">
-              <div className="rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.56)] p-4">
-                <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Admin Dashboard</p>
+              <div className="border-l border-slate-200 bg-white p-5">
+                <p className="text-sm font-semibold">Admin analytics summary</p>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {[
-                    ["Total Hours", step >= 3 ? "8h 00m" : "Live"],
-                    ["Breaks Taken", step >= 1 ? "1 logged" : "Pending"],
-                    ["Late Entry", step >= 0 ? "No" : "Waiting"],
-                    ["Overtime", step >= 3 ? "0h 20m" : "—"],
-                    ["Daily Summary", step >= 3 ? "Ready" : "Building"],
-                    ["Attendance Trends", step >= 3 ? "Synced" : "Updating"],
+                    ["Total working hours", step >= 4 ? "8h 20m" : "Live"],
+                    ["Break duration", step >= 3 ? "34m" : "Pending"],
+                    ["Active time", activeTime],
+                    ["Late entry", "No"],
+                    ["Overtime", step >= 4 ? "20m" : "-"],
+                    ["Attendance status", step >= 4 ? "Complete" : "In progress"],
                   ].map(([label, value]) => (
-                    <div
-                      key={label}
-                      className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(17,10,6,0.76)] px-4 py-4"
-                    >
-                      <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#D6A15C]">{label}</p>
-                      <p className="mt-2 text-sm text-[#F3E7D3]">{value}</p>
+                    <div key={label} className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-4">
+                      <p className="text-xs font-medium text-slate-500">{label}</p>
+                      <p className="mt-2 text-xl font-semibold">{value}</p>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="mt-4 rounded-[22px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.56)] p-4">
-                <div className="flex flex-col gap-4 md:flex-row md:items-start">
-                  <div className="grid gap-3 md:w-[220px] md:shrink-0">
-                    <div className="overflow-hidden rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(17,10,6,0.76)]">
-                      <img
-                        src={portraitImage}
-                        alt="Attendance dashboard preview"
-                        className="h-44 w-full object-cover object-top"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(17,10,6,0.76)] p-3">
-                      <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#D6A15C]">Session Summary</p>
-                      <div className="mt-3 grid gap-2.5 text-sm text-[#F3E7D3]">
-                        <div className="flex items-center justify-between gap-3 rounded-[14px] bg-[rgba(42,23,16,0.5)] px-3 py-2.5">
-                          <span>Current mode</span>
-                          <span className="text-[#D8C7B2]">Office</span>
-                        </div>
-                        <div className="flex items-center justify-between gap-3 rounded-[14px] bg-[rgba(42,23,16,0.5)] px-3 py-2.5">
-                          <span>Sync status</span>
-                          <span className="text-[#9BE7B4]">Healthy</span>
-                        </div>
-                        <div className="flex items-center justify-between gap-3 rounded-[14px] bg-[rgba(42,23,16,0.5)] px-3 py-2.5">
-                          <span>Break policy</span>
-                          <span className="text-[#D8C7B2]">Clear</span>
-                        </div>
-                      </div>
-                    </div>
+                <div className="mt-4 rounded-2xl border border-slate-200 bg-[#f8fafc] p-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-semibold">Productivity / utilization</p>
+                    <span className="text-xs font-medium text-emerald-700">84%</span>
                   </div>
-
-                  <div className="grid flex-1 gap-3">
-                    <div className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(17,10,6,0.76)] p-4">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-[0.68rem] uppercase tracking-[0.22em] text-[#D6A15C]">Daily Ledger</p>
-                        <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#9BE7B4]">Employee-visible</p>
-                      </div>
-                      <div className="mt-4 grid gap-3">
-                        {ledgerRows.map(([time, label, status], index) => (
-                          <div
-                            key={label}
-                            className="grid grid-cols-[80px_1fr_auto] items-center gap-3 rounded-[16px] border border-[rgba(185,130,69,0.12)] bg-[rgba(42,23,16,0.5)] px-3 py-3"
-                          >
-                            <p className="text-[0.68rem] uppercase tracking-[0.16em] text-[#D6A15C]">{time}</p>
-                            <p className="text-sm text-[#F3E7D3]">{label}</p>
-                            <p className={cn("text-[0.72rem]", index <= step ? "text-[#9BE7B4]" : "text-[#D8C7B2]")}>
-                              {status}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(17,10,6,0.76)] p-4">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-[0.68rem] uppercase tracking-[0.22em] text-[#D6A15C]">Attendance Sync</p>
-                        <p className="text-sm text-[#F3E7D3]">{Math.round(syncProgress * 100)}%</p>
-                      </div>
-                      <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-[rgba(185,130,69,0.12)]">
-                        <motion.div
-                          initial={{ width: "0%" }}
-                          animate={active ? { width: `${Math.round(syncProgress * 100)}%` } : { width: "0%" }}
-                          transition={{ duration: 0.6, ease: "easeOut" }}
-                          className="h-full rounded-full bg-[linear-gradient(90deg,#9BE7B4_0%,#D6A15C_100%)]"
-                        />
-                      </div>
-                      <div className="mt-4 flex flex-wrap gap-2.5">
-                        {["Fair attendance", "Clear hours", "Less manual work"].map((item) => (
-                          <DemoBadge key={item} label={item} />
-                        ))}
-                      </div>
-                    </div>
+                  <div className="mt-4 flex h-32 items-end gap-3">
+                    {[46, 64, 58, 74, 82, 70].map((value, valueIndex) => (
+                      <motion.div
+                        key={valueIndex}
+                        initial={{ height: "18%" }}
+                        animate={active ? { height: `${value}%` } : { height: "18%" }}
+                        transition={{ duration: 0.45, delay: valueIndex * 0.06 }}
+                        className="flex-1 rounded-t-lg bg-[linear-gradient(180deg,#2563eb,#93c5fd)]"
+                      />
+                    ))}
                   </div>
                 </div>
+                {step >= 5 ? (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="mt-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium text-emerald-800">
+                    Day closed. Admin summary updated automatically.
+                  </motion.div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -2189,72 +2479,108 @@ function RemindersDemoSlide({ active }: { active: boolean }) {
 }
 
 function BenefitsSlide({ active }: { active: boolean }) {
-  const cards = [
-    "Fair Attendance",
-    "Overtime Clarity",
-    "Less Manual Work",
-    "Better Employee Trust",
-    "Better Management Control",
-    "Timely Follow-ups",
-    "Clear Accountability",
-  ];
-
   return (
     <StageBackdrop active={active} image={slide21Hero}>
-      <div className="relative flex h-full flex-col justify-center px-6 py-8 sm:px-10 lg:px-16 lg:py-12">
-        <div className="mx-auto w-full max-w-[1460px]">
+      <div className="relative grid h-full gap-8 px-6 py-8 sm:px-10 lg:grid-cols-[0.58fr_1.42fr] lg:items-center lg:px-16 lg:py-12">
+        <div className="flex flex-col justify-center">
           <SlideHeading
-            kicker="Benefits / Why This Matters"
-            title="Clear Systems Prevent Expensive Confusion"
-            subtitle="Attendance, salary, overtime, and follow-ups work better when the records are clear."
+            kicker="Why This Matters"
+            title="Why Time Accountability Matters"
+            subtitle="Better visibility creates fairer recognition, stronger decisions, and less manual work."
             compact
           />
+          <div className="mt-7 grid gap-3">
+            {[
+              "Recognize consistent performers fairly.",
+              "Reduce manual follow-ups and month-end confusion.",
+              "Plan staffing around real workload patterns.",
+            ].map((item) => (
+              <div key={item} className="rounded-[18px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.56)] px-4 py-3 text-sm text-[#F3E7D3]">{item}</div>
+            ))}
+          </div>
+        </div>
 
-          <div className="mt-10 grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
-            <DemoPanel className="p-5">
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                {cards.map((item, index) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={active ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.28, delay: 0.12 + index * 0.05 }}
-                    className="rounded-[20px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.58)] px-4 py-4 text-sm text-[#F3E7D3]"
-                  >
-                    {item}
-                  </motion.div>
-                ))}
+        <DemoPanel className="p-5">
+          <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-white text-slate-900 shadow-[0_28px_80px_rgba(15,23,42,0.12)]">
+            <div className="bg-[#f6f8fb] p-5">
+              <div className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                <div>
+                  <p className="text-lg font-semibold">Management Insight Dashboard</p>
+                  <p className="text-xs text-slate-500">Attendance, productivity, approvals, and recognition</p>
+                </div>
+                <span className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600">May 2026</span>
               </div>
-            </DemoPanel>
 
-            <DemoPanel className="p-5">
-              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Salary + Time Visibility</p>
-              <div className="mt-5 grid gap-3">
+              <div className="mt-4 grid gap-3 sm:grid-cols-4">
                 {[
-                  ["Salary calculation", "Depends on correct work-hour records"],
-                  ["Overtime record", "Visible without manual follow-up"],
-                  ["Late entry visibility", "Clear for payroll review"],
-                  ["Break clarity", "Fair for both employee and leadership"],
-                ].map(([label, value]) => (
-                  <div
-                    key={label}
-                    className="grid gap-2 rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-4 md:grid-cols-[180px_1fr]"
-                  >
-                    <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#D6A15C]">{label}</p>
-                    <p className="text-sm text-[#F3E7D3]">{value}</p>
+                  ["Punctuality", "94%", "+8%"],
+                  ["Active hours", "1,248", "this month"],
+                  ["Completed days", "96%", "verified"],
+                  ["Approval pending", "07", "needs action"],
+                ].map(([label, value, note]) => (
+                  <div key={label} className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p className="text-xs font-medium text-slate-500">{label}</p>
+                    <p className="mt-2 text-2xl font-semibold">{value}</p>
+                    <p className="mt-1 text-xs text-emerald-700">{note}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-5 rounded-[22px] border border-[rgba(185,130,69,0.16)] bg-[rgba(11,8,6,0.72)] p-4">
-                <p className="text-sm leading-7 text-[#D8C7B2]">
-                  The chief already has 100 tasks. The system handles the overtime visibility before
-                  it becomes a month-end surprise.
-                </p>
+              <div className="mt-4 grid gap-4 xl:grid-cols-[0.92fr_1.08fr]">
+                <div className="grid gap-4">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p className="text-sm font-semibold">Fair recognition</p>
+                    <div className="mt-3 grid gap-2">
+                      {[
+                        ["Meera Shah", "98% reliability", "Top consistent"],
+                        ["Rahul Joshi", "12h overtime", "High contribution"],
+                        ["Nikhil Jain", "0 missed approvals", "Process strength"],
+                      ].map(([name, value, tag]) => (
+                        <div key={name} className="grid grid-cols-[1fr_auto] items-center rounded-xl bg-slate-50 px-3 py-2 text-sm">
+                          <div><p className="font-medium">{name}</p><p className="text-xs text-slate-500">{value}</p></div>
+                          <span className="rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-700">{tag}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-medium leading-6 text-emerald-800">
+                    Everyone's time is recorded clearly, reviewed fairly, and used wisely.
+                  </div>
+                </div>
+
+                <div className="grid gap-4">
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p className="text-sm font-semibold">Time allocation</p>
+                    <div className="mt-4 grid gap-3">
+                      {[
+                        ["Client work", 38, "bg-blue-500"],
+                        ["Admin work", 24, "bg-amber-500"],
+                        ["Breaks", 12, "bg-emerald-500"],
+                        ["Meetings", 18, "bg-violet-500"],
+                        ["Idle / untracked", 8, "bg-slate-400"],
+                      ].map(([label, value, color]) => (
+                        <div key={label as string}>
+                          <div className="flex justify-between text-xs text-slate-500"><span>{label as string}</span><span>{value as number}%</span></div>
+                          <div className="mt-1 h-2 overflow-hidden rounded-full bg-slate-100">
+                            <motion.div initial={{ width: "0%" }} animate={active ? { width: `${value}%` } : { width: "0%" }} transition={{ duration: 0.55 }} className={cn("h-full rounded-full", color as string)} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white p-4">
+                    <p className="text-sm font-semibold">Decision insights</p>
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                      {["Reduce manual follow-ups", "Identify workload imbalance", "Reward consistency", "Improve planning"].map((item) => (
+                        <div key={item} className="rounded-xl bg-slate-50 px-3 py-2 text-xs font-medium text-slate-600">{item}</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </DemoPanel>
+            </div>
           </div>
-        </div>
+        </DemoPanel>
       </div>
     </StageBackdrop>
   );
@@ -2264,66 +2590,36 @@ function FinalVisionSlide({ active }: { active: boolean }) {
   return (
     <StageBackdrop active={active} image={slide24Hero}>
       <div className="relative flex h-full flex-col justify-center px-6 py-6 sm:px-10 lg:px-16 lg:py-8">
-        <div className="mx-auto w-full max-w-[1180px] text-center">
+        <div className="mx-auto w-full max-w-[1040px] text-center">
           <SlideHeading
             kicker="Final Vision"
             eyebrow="Thank You"
-            title="This Is Not Just About Software"
-            subtitle="It is about building a smarter legal workplace."
+            title="Better Systems Help People Serve Justice"
+            subtitle="A confident operating layer for legal work, attendance, transparency, and accountability."
             align="center"
             size="standard"
           />
 
-          <div className="mt-8 grid gap-5 lg:grid-cols-2">
-            <DemoPanel className="p-6 text-left">
-              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Legal Platform</p>
-              <div className="mt-5 grid gap-3">
-                {[
-                  "Legal work becomes smarter",
-                  "Case access improves",
-                  "Lawyer workspace improves",
-                  "Admin control improves",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-4 text-sm text-[#F3E7D3]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </DemoPanel>
-
-            <DemoPanel className="p-6 text-left">
-              <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Attendance Software</p>
-              <div className="mt-5 grid gap-3">
-                {[
-                  "Office work becomes clearer",
-                  "Attendance becomes fair",
-                  "Reminders reduce missed tasks",
-                  "Management gets visibility",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[18px] border border-[rgba(185,130,69,0.14)] bg-[rgba(42,23,16,0.54)] px-4 py-4 text-sm text-[#F3E7D3]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </DemoPanel>
-          </div>
-
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={active ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.4, delay: 0.36 }}
-            className="mx-auto mt-8 max-w-[920px] rounded-[30px] border border-[rgba(185,130,69,0.32)] bg-[rgba(17,10,6,0.82)] px-6 py-5 shadow-[0_30px_100px_rgba(17,10,6,0.44)]"
+            transition={{ duration: 0.4, delay: 0.24 }}
+            className="mx-auto mt-8 max-w-[920px] rounded-[30px] border border-[rgba(185,130,69,0.32)] bg-[rgba(17,10,6,0.82)] px-7 py-7 shadow-[0_30px_100px_rgba(17,10,6,0.44)]"
           >
             <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[#D6A15C]">Final Message</p>
             <p className="mt-4 font-display text-[clamp(1.8rem,2.55vw,2.7rem)] leading-[1.08] text-[#F3E7D3]">
-              Building a smarter legal workplace for clients, lawyers, leadership, and employees.
+              When justice, time, and technology move together, institutions become more transparent, accountable, and humane.
             </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-4">
+              {["Legal access", "Lawyer workspace", "Admin control", "Time accountability"].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[16px] border border-[rgba(185,130,69,0.16)] bg-[rgba(42,23,16,0.54)] px-4 py-3 text-sm text-[#F3E7D3]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
@@ -2444,7 +2740,9 @@ export function LegalWorkplacePresentation() {
 
       <div className="pointer-events-none absolute right-6 top-6 z-40 hidden xl:block">
         <TopPill className="bg-[rgba(17,10,6,0.86)]">
-          <span className="text-[#CDBDA6]">{`Slide ${String(activeIndex + 1).padStart(2, "0")}`}</span>
+          <span className="text-[#CDBDA6]">
+            {activeIndex === 0 ? "Slide 00" : `Slide ${String(activeIndex).padStart(2, "0")}`}
+          </span>
           <span className="h-1.5 w-1.5 rounded-full bg-[rgba(214,161,92,0.7)]" />
           <span className="text-[#FFE6B8]">{currentSlide?.label ?? ""}</span>
         </TopPill>
@@ -2531,18 +2829,18 @@ export function LegalWorkplacePresentation() {
           sectionRef={(element) => {
             sectionRefs.current[8] = element;
           }}
-          testId="legal-demo-slide-shared-notes"
+          testId="legal-demo-slide-admin"
         >
-          <SharedNotesDemoSlide active={activeIndex === 8} />
+          <AdminDashboardSlide active={activeIndex === 8} />
         </SectionShell>
 
         <SectionShell
           sectionRef={(element) => {
             sectionRefs.current[9] = element;
           }}
-          testId="legal-demo-slide-admin"
+          testId="legal-demo-slide-attendance-intro"
         >
-          <AdminDashboardSlide active={activeIndex === 9} />
+          <AttendanceIntroSlide active={activeIndex === 9} />
         </SectionShell>
 
         <SectionShell

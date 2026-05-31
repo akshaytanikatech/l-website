@@ -11,8 +11,8 @@ const slideIds = [
   "legal-demo-slide-justice-clock",
   "legal-demo-slide-appointments",
   "legal-demo-slide-lawyer-dashboard",
-  "legal-demo-slide-shared-notes",
   "legal-demo-slide-admin",
+  "legal-demo-slide-attendance-intro",
   "legal-demo-slide-attendance",
   "legal-demo-slide-reminders",
   "legal-demo-slide-benefits",
@@ -36,8 +36,9 @@ async function jumpToSlide(page: Page, index: number) {
 const screenshotWaitBySlide: Record<number, number> = {
   4: 1800,
   6: 1800,
-  8: 2100,
-  9: 1500,
+  7: 4300,
+  8: 1500,
+  9: 2100,
   10: 4300,
   11: 4100,
 };
